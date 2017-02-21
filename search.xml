@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[测试文章模版]]></title>
+      <url>%2F2017%2F02%2F21%2F%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0%E6%A8%A1%E7%89%88%2F</url>
+      <content type="text"><![CDATA[&lt;%- toc(page.content, { class: ‘post-toc’, list_number: true }) %&gt; 主要特性 支持“标准”Markdown / CommonMark和Github风格的语法，也可变身为代码编辑器； 支持实时预览、图片（跨域）上传、预格式文本/代码/表格插入、代码折叠、搜索替换、只读模式、自定义样式主题和多语言语法高亮等功能；]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[ceshi02]]></title>
       <url>%2F2017%2F02%2F20%2Fceshi02%2F</url>
       <content type="text"><![CDATA[要学会搜索，多google能教会你很多东西]]></content>
