@@ -30,6 +30,13 @@
     </entry>
 
     
+    <entry>
+      <title><![CDATA[webstorm与sublime]]></title>
+      <url>%2F2016%2F05%2F21%2F%E7%BC%96%E8%BE%91%E5%99%A8%E9%85%8D%E7%BD%AE%2F</url>
+      <content type="text"><![CDATA[软件配置（原创版，持续更新）sublime的配置1.软件的下载与注册 在官网下载sublime text3之后，有需要就网上找注册码.然后在 HELP–&gt;Licence 黏贴你的注册码就行了。 2.安装install package 打开控制台(一般是CTRL+’) （适用于 Sublime Text3） 然后复制黏贴以下代码 import urllib.request,os;pf=’Package Control.sublime-package’;ipp=sublime.installed_packages_path();urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));open(os.path.join(ipp,pf),’wb’).write(urllib.request.urlopen(‘http://sublime.wbond.net/&#39;+pf.replace(‘ ‘,’%20’)).read()) 测试是否成功安装ctrl+shift+p输入ins可进（prefense、）安装插件都是ctrl+shift+p，再输入ins，确定之后，再输入你要安装的插件名称，点击完之后，等待sublime最下面的显示安装进度，再重启就行了 3.汉化： ctrl+shift+p 安装插件chinese 然后重启，在HELP–&gt;Language切换中文 4.设置html文件在浏览器中快捷打开： 安装插件 view in browser 在SublimeText下打开该路径：preferen 按键绑定-用户 在” ] “前输入以下代码：{ “keys”: [“ctrl+你想要设置的键（字母B，A啥的都可以）”], “command”: “open_in_browser” } 5.如何快速创建html头部格式文件 安装插件：ement 创建时：先CTRIL+N，创建一个文件先，然后CTRL+S保存文件（命名为xx.html） 然后空文件输入 html:5 最后按一下Tab键如图： 6.css颜色框： 安装color picker插件 进入prefence 打开 window default 这里是设置快捷键打开：{ “keys”: [“ctrl+j”], “command”: “color_pick” } 7.左侧目录树的显示： 安装插件 advanceNewFile 安装完之后，同样和别的安装插件步骤一样，重启。再在 sublime左上角的‘文件’ 选项里，选择 ‘文件夹’ ，再任意打开一个文件夹就行了 8.代码提示（例如back 然后提示background） 安装插件SublimeCodeIntel 9.格式化html/css/js代码（也就是排列整齐）（还要安装node这里就不详说了） 安装插件 html/css/js prettify 进入此插件的 set plugin options 设置路径：”node_path”: { 例如我自己的路径： “windows”: “E:/学习/sublime text3/Sublime Text 3/Packages/node.exe”, 测试，全选要格式化的代码，然后右键，Prettify code 10.平时一些偷懒操作1234输入 div*2 再按 Tab键会出现 &lt;div&gt;&lt;/div&gt; &lt;div&gt;&lt;/div&gt; 类似的还有：E元素名（div、p）；12&lt;div&gt;&lt;/div&gt;&lt;p&gt;&lt;/p&gt; id和class可以连着写，div#content.column1&lt;div id="content" class="column"&gt;&lt;/div&gt; EN多项元素（ul#nav&gt;li5&gt;a）1234567&lt;ul id="nav"&gt; &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt; 还有的类似，慢慢就懒懂起来的了~~ 代码缩进：ctrl+ { 万一不小心把菜单栏弄隐藏了：调出顶部菜单栏：ctrl+shift+p、再输view 11.有些时候要设置Path路径，就是自己的文件夹名字改变等等之类的 例如我自己的（其中注意路径的斜杠是反着的 \）： sublimetext会有提示更改软件里的path 更改系统变量Path: E:\学习\sublime text3\Sublime Text 3\Packages\node_modules\npm\bin E:\学习\sublime text3\Sublime Text 3\Packages ———————————————————webstorm的配置 如何安装： 官网下载2016.2版本，然后破解的话，网上搜注册码激活咯 主题导入： File–&gt;import settings–&gt;选择文件：自己下载的本地文件 settings.jar 代码和界面的同步编写 先在chrome安装JetBrains IDE Support插件 然后打开webstorm软件，右键Debugger(然后会自动弹出google浏览器（default的浏览器），在webstorm上编代码，浏览器都会同步更改)]]></content>
+    </entry>
+
+    
   
   
 </search>
