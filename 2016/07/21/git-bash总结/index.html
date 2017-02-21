@@ -90,15 +90,15 @@
 <meta property="og:url" content="http://yoursite.com/2016/07/21/git-bash总结/index.html">
 <meta property="og:site_name" content="博客">
 <meta property="og:description" content="Git Bash软件基础命令:零、建立本地与远程仓库的连接$ ssh-keygen -t rsa -C &amp;quot;youremail@example.com&amp;quot;本地找到.ssh目录，有id_rsa和id_rsa.pub两个文件，SSH Key的秘钥对，id_rsa是私钥，id_rsa.pub是公钥，可以放心地告诉任何人。登陆GitHub，打开“Account settings”，“SSH">
-<meta property="og:image" content="https://github.com/tgqnanman/Approaches-To-Learning/raw/master/picture/%E6%8F%90%E4%BA%A4.jpg">
-<meta property="og:image" content="https://github.com/tgqnanman/Approaches-To-Learning/raw/master/picture/stage%E7%A9%BA.jpg">
-<meta property="og:image" content="https://github.com/tgqnanman/Approaches-To-Learning/raw/master/picture/bieming01.png">
-<meta property="og:image" content="https://github.com/tgqnanman/Approaches-To-Learning/raw/master/picture/bieming02.png">
-<meta property="og:updated_time" content="2017-02-21T06:11:00.222Z">
+<meta property="og:image" content="http://yoursite.com/images/提交.jpg">
+<meta property="og:image" content="http://yoursite.com/images/stage空.jpg">
+<meta property="og:image" content="http://yoursite.com/images/bieming01.png">
+<meta property="og:image" content="http://yoursite.com/images/bieming02.png">
+<meta property="og:updated_time" content="2017-02-21T06:29:16.592Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git-bash总结">
 <meta name="twitter:description" content="Git Bash软件基础命令:零、建立本地与远程仓库的连接$ ssh-keygen -t rsa -C &amp;quot;youremail@example.com&amp;quot;本地找到.ssh目录，有id_rsa和id_rsa.pub两个文件，SSH Key的秘钥对，id_rsa是私钥，id_rsa.pub是公钥，可以放心地告诉任何人。登陆GitHub，打开“Account settings”，“SSH">
-<meta name="twitter:image" content="https://github.com/tgqnanman/Approaches-To-Learning/raw/master/picture/%E6%8F%90%E4%BA%A4.jpg">
+<meta name="twitter:image" content="http://yoursite.com/images/提交.jpg">
 
 
 
@@ -371,10 +371,10 @@
 <hr>
 <h5 id="五、工作区与暂存区"><a href="#五、工作区与暂存区" class="headerlink" title="五、工作区与暂存区"></a>五、工作区与暂存区</h5><p>工作区（<strong>文件夹</strong>）有一个隐藏目录<strong>.git</strong>，这个不算工作区，而是Git的版本库。</p>
 <p>Git的版本库里存了很多东西，其中最重要的就是称为<strong>stage</strong>（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支<strong>master</strong>，以及指向master的一个指针叫HEAD。</p>
-<p><img src="https://github.com/tgqnanman/Approaches-To-Learning/raw/master/picture/%E6%8F%90%E4%BA%A4.jpg" alt=""></p>
+<p><img src="/images/提交.jpg" alt=""></p>
 <p><code>git add</code>命令实际上就是把要提交的所有修改放到暂存区（Stage），然后，执行<code>git commit</code>就可以一次性把暂存区的所有修改提交到分支。</p>
 <p>一旦提交后，如果你又没有对工作区做任何修改，那么工作区就是“干净”的<code>git status</code>：</p>
-<p><img src="https://github.com/tgqnanman/Approaches-To-Learning/raw/master/picture/stage%E7%A9%BA.jpg" alt=""></p>
+<p><img src="/images/stage空.jpg" alt=""></p>
 <h5 id="六、撤销修改"><a href="#六、撤销修改" class="headerlink" title="六、撤销修改"></a>六、撤销修改</h5><ol>
 <li><p><code>git checkout -- file</code>  可以丢弃工作区的修改</p>
 </li>
@@ -402,7 +402,7 @@
 <li><code>git last</code>   最后一次提交情况-别名</li>
 </ul>
 <p><code>git config --global alias.last &#39;log -1&#39;</code></p>
-<p><img src="https://github.com/tgqnanman/Approaches-To-Learning/raw/master/picture/bieming01.png" alt=""><br><img src="https://github.com/tgqnanman/Approaches-To-Learning/raw/master/picture/bieming02.png" alt=""></p>
+<p><img src="/images/bieming01.png" alt=""><br><img src="/images/bieming02.png" alt=""></p>
 <h5 id="分支系列命令分支系列命令"><a href="#分支系列命令分支系列命令" class="headerlink" title="分支系列命令分支系列命令"></a>分支系列命令分支系列命令</h5><p>查看分支：<code>git branch</code></p>
 <p>创建分支：<code>git branch &lt;name&gt;</code></p>
 <p>切换分支：<code>git checkout &lt;name&gt;</code></p>

@@ -104,13 +104,16 @@ Ctrl+shift+C、F12或者右键开发者工具–&amp;gt;打开调试器
 chrome地址栏输入：chrome://flags 找到experiments关键字：启用开发者工具实验。
 打开调试器（F12），点击设置（setting啥的）：在Experiments中，选中Allow custom UI themes。
 然">
-<meta property="og:image" content="http://yoursite.com/picture/alert.gif">
+<meta property="og:image" content="http://yoursite.com/images/alert.gif">
 <meta property="og:image" content="http://yoursite.com/images/console.gif">
-<meta property="og:image" content="http://yoursite.com/picture/console.table_.gif">
-<meta property="og:image" content="http://yoursite.com/picture/breakpoint-sum2.gif">
-<meta property="og:image" content="http://yoursite.com/picture/breakpoint-sum4.gif">
-<meta property="og:image" content="http://yoursite.com/picture/breakpoint-sum3.gif">
-<meta property="og:updated_time" content="2017-02-21T06:15:40.772Z">
+<meta property="og:image" content="http://yoursite.com/images/breakpoint-sum2.gif">
+<meta property="og:image" content="http://yoursite.com/images//breakpoint-sum4.gif">
+<meta property="og:image" content="http://yoursite.com/images//breakpoint-sum3.gif">
+<meta property="og:image" content="http://yoursite.com/images/jugelizi.png">
+<meta property="og:image" content="http://yoursite.com/images/breakpoint-sum5.gif">
+<meta property="og:image" content="http://yoursite.com/images/subtree.gif">
+<meta property="og:image" content="http://yoursite.com/images/subtree.gif">
+<meta property="og:updated_time" content="2017-02-21T06:26:20.649Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chrome的调试工具">
 <meta name="twitter:description" content="Chrome的调试
@@ -121,7 +124,7 @@ Ctrl+shift+C、F12或者右键开发者工具–&amp;gt;打开调试器
 chrome地址栏输入：chrome://flags 找到experiments关键字：启用开发者工具实验。
 打开调试器（F12），点击设置（setting啥的）：在Experiments中，选中Allow custom UI themes。
 然">
-<meta name="twitter:image" content="http://yoursite.com/picture/alert.gif">
+<meta name="twitter:image" content="http://yoursite.com/images/alert.gif">
 
 
 
@@ -358,7 +361,7 @@ chrome地址栏输入：chrome://flags 找到experiments关键字：启用开发
       
 
       
-        <h2 id="Chrome的调试"><a href="#Chrome的调试" class="headerlink" title="Chrome的调试"></a><em>Chrome的调试</em></h2><ul>
+        <h3 id="Chrome的调试"><a href="#Chrome的调试" class="headerlink" title="Chrome的调试"></a><em>Chrome的调试</em></h3><ul>
 <li><strong>Ctrl+shift+C、F12或者右键开发者工具–&gt;打开调试器</strong></li>
 <li><p><strong>调试器的黑色主题</strong></p>
 <ul>
@@ -369,22 +372,22 @@ chrome地址栏输入：chrome://flags 找到experiments关键字：启用开发
 </ul>
 <hr>
 </li>
-<li><p><strong>有关调试的技巧（自己整理了一下）、来自原创<a href="http://seejs.me/2016/03/27/jsdebugger/" target="_blank" rel="external">网站</a></strong></p>
-<ul>
+</ul>
+<h4 id="有关调试的技巧（自己整理了一下）、来自原创网站"><a href="#有关调试的技巧（自己整理了一下）、来自原创网站" class="headerlink" title="有关调试的技巧（自己整理了一下）、来自原创网站"></a><strong>有关调试的技巧（自己整理了一下）、来自原创<a href="http://seejs.me/2016/03/27/jsdebugger/" target="_blank" rel="external">网站</a></strong></h4><ul>
 <li><p>内置于Window对象中的alert方法(被玩坏了的) </p>
-<p> <img src="picture/alert.gif" width="400" height="200"></p>
+<p>  <img src="/images/alert.gif" width="400" height="200"></p>
 </li>
 <li><p>alert调试方式弹出的调试信息，  弹窗会遮挡部分页面内容。另一方面，程序逻辑中添加类似”alert(xxxxx)”这样的语句，会阻碍页面的继续渲染。  现在出现”console.log(xxxx)”的形式，在控制台打印调试信息，而不直接影响页面显示。以IE为例，它看起来像这样：</p>
-<p>  <img src="/images/console.gif" width="400" height="200"></p>
+<p>   <img src="/images/console.gif" width="400" height="200"></p>
 </li>
 <li><p>好吧，再见丑陋的alert弹出框。而以Chrome浏览器为首的后起之秀，为Console扩展了更丰富的功能：</p>
-<p>   <img src="picture/console.table_.gif" width="400" height="200"></p>
-</li>
+<pre><code>&lt;img src=&quot;/images/console.table_.gif&quot; width=400 height=200 /&gt;
+</code></pre></li>
 <li><p>还有一些其的打印功能</p>
-<pre><code>&lt;img src=picture/consolec.gif width=400 height=200 /&gt;
+<pre><code>&lt;img src=&quot;/images/consolec.gif&quot; width=400 height=200 /&gt;
 </code></pre></li>
 </ul>
-</li>
+<ul>
 <li><p><strong>断点调试</strong></p>
 <ul>
 <li><strong>附上调试代码(代码很简单，就是定义一个函数，传入两个数，分别加上一个乱七八糟的随机整数后，再返回两个数的总和。以Chrome开发者工具为例，我们来看一下JS断点调试的基本方法。)：</strong></li>
@@ -394,12 +397,12 @@ chrome地址栏输入：chrome://flags 找到experiments关键字：启用开发
 </ul>
 <ul>
 <li><p>设置断点的作用（查看相应变量的变化<code>图中粉红色区域</code>）</p>
-<p>  <img src="picture/breakpoint-sum2.gif" width="500" height="300"></p>
+<p>  <img src="/images/breakpoint-sum2.gif" width="500" height="300"></p>
 </li>
 </ul>
 <ul>
 <li><p>打开Sources面板后其实会在界面中看到如下内容，我们跟着鼠标轨迹逐一看看都是什么意思：</p>
-<p> <img src="picture/breakpoint-sum4.gif" width="400" height="70"></p>
+<p> <img src="/images//breakpoint-sum4.gif" width="400" height="70"></p>
 <p> 从左到右，各个图标表示的功能分别为：</p>
 </li>
 </ul>
@@ -416,26 +419,25 @@ chrome地址栏输入：chrome://flags 找到experiments关键字：启用开发
 - [x] Pause on exceptions：异常情况自动断点设置。
 </code></pre><ul>
 <li><p>到此，断点调试的功能键介绍得差不多了，接下来我们就可以一行一行去看我们的程序代码，查看每一行执行完毕之后，我们各个变量的变化情况了，如下图所示：</p>
-<p> <img src="picture/breakpoint-sum3.gif" width="500" height="300"></p>
+<p> <img src="/images//breakpoint-sum3.gif" width="500" height="300"></p>
 <p>  <strong>这里要强调一下，调试过程，先点击右上角的停止按钮，如果还调试不行，就在  左边页面刷新一下，然后如下图：在设置的两个断点间按 F10 便会不断进行下一步</strong></p>
 </li>
 </ul>
-<pre><code>&lt;img src=picture/jugelizi.png width=500 height=300 /&gt;
-</code></pre><ul>
+<p> <img src="/images/jugelizi.png" width="500" height="300"></p>
+<ul>
 <li>其余几个功能键，稍微改动一下测试代码，用一张gif图来演示他们的使用方法：</li>
 </ul>
-<pre><code>&lt;img src=picture/breakpoint-sum5.gif width=500 height=300 /&gt;
-</code></pre><ul>
+<p>  <img src="/images/breakpoint-sum5.gif" width="500" height="300"></p>
+<ul>
 <li>DOM断点调试当节点内部子节点变化时断点（Break on subtree modifications）</li>
 </ul>
-<pre><code>&lt;img src=picture/subtree.gif width=500 height=300 /&gt;
-</code></pre><ul>
+<p>  <img src="/images/subtree.gif" width="500" height="300"></p>
+<ul>
 <li>Event Listener Breakpoints事件监听器断点，即根据事件名称进行断点设置。当事件被触发时，断点到事件绑定的位置。事件监听器断点，列出了所有页面及脚本事件，包括：鼠标、键盘、动画、定时器、XHR等等。极大的降低了事件方面业务逻辑的调试难度。演示实例演示了当click事件被触发时和当setTimeout被设置时的断点效果。实例显示，当选中click事件断点之后，两个按钮的被点击时都触发了断点，而当setTimeout被设置时，“Set Timer”断点被触发。</li>
 </ul>
-<pre><code>&lt;img src=picture/subtree.gif width=500 height=300 /&gt;
-</code></pre><hr>
-<p>##console的相关方法（整理完都是泪）</p>
-<ul>
+<p>  <img src="/images/subtree.gif" width="500" height="300"></p>
+<hr>
+<h3 id="console的相关方法（整理完都是泪）"><a href="#console的相关方法（整理完都是泪）" class="headerlink" title="console的相关方法（整理完都是泪）"></a>console的相关方法（整理完都是泪）</h3><ul>
 <li><p>console.log() 接收不定参数，参数间用逗号分隔，最终会输出会将它们以空白字符连接。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">'hi'</span>,<span class="string">'hello'</span>)  </div><div class="line"><span class="comment">//hi hello</span></div></pre></td></tr></table></figure>
 </li>
@@ -663,7 +665,7 @@ chrome地址栏输入：chrome://flags 找到experiments关键字：启用开发
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chrome的调试"><span class="nav-number">1.</span> <span class="nav-text">Chrome的调试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最后扯两句，这chrome-md文件-整理的有点苦逼，不想再commit更新了！！！"><span class="nav-number">1.1.</span> <span class="nav-text">最后扯两句，这chrome.md文件 整理的有点苦逼，不想再commit更新了！！！</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Chrome的调试"><span class="nav-number">1.</span> <span class="nav-text">Chrome的调试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#有关调试的技巧（自己整理了一下）、来自原创网站"><span class="nav-number">1.1.</span> <span class="nav-text">有关调试的技巧（自己整理了一下）、来自原创网站</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console的相关方法（整理完都是泪）"><span class="nav-number">2.</span> <span class="nav-text">console的相关方法（整理完都是泪）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后扯两句，这chrome-md文件-整理的有点苦逼，不想再commit更新了！！！"><span class="nav-number">3.</span> <span class="nav-text">最后扯两句，这chrome.md文件 整理的有点苦逼，不想再commit更新了！！！</span></a></li></ol></div>
             
           </div>
         </section>
