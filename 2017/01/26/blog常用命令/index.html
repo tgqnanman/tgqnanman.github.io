@@ -41,7 +41,8 @@
 本地预览： hexo server
 
 终止预">
-<meta property="og:updated_time" content="2017-02-28T08:39:06.181Z">
+<meta property="og:image" content="http://yoursite.com/images/砸电脑吧.jpg">
+<meta property="og:updated_time" content="2017-02-28T08:59:25.811Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="blog常用命令">
 <meta name="twitter:description" content="主要配置文件：
@@ -55,6 +56,7 @@
 本地预览： hexo server
 
 终止预">
+<meta name="twitter:image" content="http://yoursite.com/images/砸电脑吧.jpg">
 
   
 
@@ -179,7 +181,7 @@
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
+    <strong class="toc-title">Posts List</strong>
     <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#主要配置文件："><span class="toc-text">主要配置文件：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用到的git命令"><span class="toc-text">用到的git命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#踩到的坑："><span class="toc-text">踩到的坑：</span></a></li></ol>
   </div>
 
@@ -240,11 +242,20 @@
 </li>
 <li><p>部署到远端仓库：  <code>hexo deploy</code></p>
 </li>
-<li><p>远端不显示可键入再g d:  <code>hexo clear</code></p>
+<li><p>远端不显示可键入再g d:  <code>hexo clean</code></p>
 </li>
 </ul>
-<h4 id="踩到的坑："><a href="#踩到的坑：" class="headerlink" title="踩到的坑："></a>踩到的坑：</h4><p>时不是提交登录一下：以下命令有所帮助<br>git remote -v<br>git init<br>弹出登录一次后估计就能保存了</p>
-<p>如果还解决不了，砸电脑吧</p>
+<h4 id="踩到的坑："><a href="#踩到的坑：" class="headerlink" title="踩到的坑："></a>踩到的坑：</h4><ul>
+<li><p>格式问题<br>一定要注意xml配置格式，有空格，然后别的照着弄就好了</p>
+</li>
+<li><p>md文件头设置评论与否(注意空格)：<br>comments: false</p>
+</li>
+<li><p>端口被占用<br>如果您想要更改端口，或是在执行时遇到了 EADDRINUSE 错误，可以在执行时使用 -p 选项指定其他端口，如下：<br><code>hexo server -p 5000</code></p>
+</li>
+<li><p>时不时提交登录一下：<br>当你ssh密钥等都认为弄好了后，以下命令有所帮助<br><code>git init</code> 弹出登录一次后估计就能保存了</p>
+</li>
+</ul>
+<p>如果还解决不了，砸电脑吧<img src="/images/砸电脑吧.jpg" alt=""></p>
 
     
   </div>
@@ -300,7 +311,7 @@
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">关闭</span>
+      <span id="close" class="btn-close">Close</span>
     </div>
     <hr>
     <div class="modal-body">
