@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>git-bash总结 | 博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="git," />
+  
+
+  <meta name="description" content="Git Bash软件基础命令:零、建立本地与远程仓库的连接$ ssh-keygen -t rsa -C &amp;quot;youremail@example.com&amp;quot;本地找到.ssh目录，有id_rsa和id_rsa.pub两个文件，SSH Key的秘钥对，id_rsa是私钥，id_rsa.pub是公钥，可以放心地告诉任何人。登陆GitHub，打开“Account settings”，“SSH">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git-bash总结">
+<meta property="og:url" content="http://yoursite.com/2016/04/17/git-bash总结/index.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="Git Bash软件基础命令:零、建立本地与远程仓库的连接$ ssh-keygen -t rsa -C &amp;quot;youremail@example.com&amp;quot;本地找到.ssh目录，有id_rsa和id_rsa.pub两个文件，SSH Key的秘钥对，id_rsa是私钥，id_rsa.pub是公钥，可以放心地告诉任何人。登陆GitHub，打开“Account settings”，“SSH">
+<meta property="og:image" content="http://yoursite.com/images/提交.jpg">
+<meta property="og:image" content="http://yoursite.com/images/stage空.jpg">
+<meta property="og:image" content="http://yoursite.com/images/bieming01.png">
+<meta property="og:image" content="http://yoursite.com/images/bieming02.png">
+<meta property="og:updated_time" content="2017-02-21T07:18:19.568Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git-bash总结">
+<meta name="twitter:description" content="Git Bash软件基础命令:零、建立本地与远程仓库的连接$ ssh-keygen -t rsa -C &amp;quot;youremail@example.com&amp;quot;本地找到.ssh目录，有id_rsa和id_rsa.pub两个文件，SSH Key的秘钥对，id_rsa是私钥，id_rsa.pub是公钥，可以放心地告诉任何人。登陆GitHub，打开“Account settings”，“SSH">
+<meta name="twitter:image" content="http://yoursite.com/images/提交.jpg">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Git-Bash软件基础命令"><span class="toc-text">Git Bash软件基础命令:</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#零、建立本地与远程仓库的连接"><span class="toc-text">零、建立本地与远程仓库的连接</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#一、创建空目录"><span class="toc-text">一、创建空目录</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#二、本地创建版本库（repository）"><span class="toc-text">二、本地创建版本库（repository）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#三、提交文件到版本库"><span class="toc-text">三、提交文件到版本库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#四、版本回退"><span class="toc-text">四、版本回退</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#五、工作区与暂存区"><span class="toc-text">五、工作区与暂存区</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#六、撤销修改"><span class="toc-text">六、撤销修改</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#七、删除文件"><span class="toc-text">七、删除文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#八、远程库的管理"><span class="toc-text">八、远程库的管理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#九、克隆远程库"><span class="toc-text">九、克隆远程库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#十、杂杂的"><span class="toc-text">十、杂杂的</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#分支系列命令分支系列命令"><span class="toc-text">分支系列命令分支系列命令</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#在分支提交到远程库部骤："><span class="toc-text">在分支提交到远程库部骤：</span></a></li></ol></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-git-bash总结" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">git-bash总结</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.04.17</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>啊其</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+        <i class="icon-comment"></i> 
+        <span class="ds-thread-count" data-thread-key="post-git-bash总结"><i class="fa fa-spinner fa-spin"></i></span> 条评论
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h4 id="Git-Bash软件基础命令"><a href="#Git-Bash软件基础命令" class="headerlink" title="Git Bash软件基础命令:"></a>Git Bash软件基础命令:</h4><h5 id="零、建立本地与远程仓库的连接"><a href="#零、建立本地与远程仓库的连接" class="headerlink" title="零、建立本地与远程仓库的连接"></a>零、建立本地与远程仓库的连接</h5><p><code>$ ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code><br>本地找到.ssh目录，有id_rsa和id_rsa.pub两个文件，SSH Key的秘钥对，id_rsa是私钥，id_rsa.pub是公钥，可以放心地告诉任何人。登陆GitHub，打开“Account settings”，“SSH Keys”页面：然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容。</p>
+<h5 id="一、创建空目录"><a href="#一、创建空目录" class="headerlink" title="一、创建空目录"></a>一、创建空目录</h5><ul>
+<li><p><code>mkdir newFile</code>    新建一个文件夹</p>
+</li>
+<li><p><code>cd newFile</code>      进入文件夹</p>
+</li>
+</ul>
+<p><code>pwd</code>    显示当前目录</p>
+<hr>
+<h5 id="二、本地创建版本库（repository）"><a href="#二、本地创建版本库（repository）" class="headerlink" title="二、本地创建版本库（repository）"></a>二、本地创建版本库（repository）</h5><ul>
+<li><code>git init</code>    newFile文件夹内有一个.git的目录，这个目录是Git来跟踪管理版本库的</li>
+</ul>
+<p><del>Initialized empty Git repository in /Users/TGQ/newFile/.git/</del></p>
+<p><code>ls -ah</code>     .git目录，那是因为这个目录默认是隐藏的，用ls -ah命令就可以看见</p>
+<hr>
+<h5 id="三、提交文件到版本库"><a href="#三、提交文件到版本库" class="headerlink" title="三、提交文件到版本库"></a>三、提交文件到版本库</h5><ul>
+<li><p><code>git add .</code>   （添加到工作区）</p>
+</li>
+<li><p><code>git commit -m &quot;提交的备注&quot;</code>   （提交到暂存区）</p>
+</li>
+</ul>
+<p><code>git status</code>    掌握仓库当前的状态（文件被修改过）</p>
+<p><code>git diff</code>      查看修改内容</p>
+<hr>
+<h5 id="四、版本回退"><a href="#四、版本回退" class="headerlink" title="四、版本回退"></a>四、版本回退</h5><ul>
+<li><p><code>git log</code>     提交日志</p>
+</li>
+<li><p><code>git reset --hard HEAD^（或者是commit_id）</code>  回退上一个版本</p>
+</li>
+</ul>
+<p><code>git reflog</code>  命令历史</p>
+<p><code>cat  readme.txt</code>   查看txt文件内容</p>
+<p>在Git中，用<code>HEAD</code>表示当前版本，上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code></p>
+<hr>
+<h5 id="五、工作区与暂存区"><a href="#五、工作区与暂存区" class="headerlink" title="五、工作区与暂存区"></a>五、工作区与暂存区</h5><p>工作区（<strong>文件夹</strong>）有一个隐藏目录<strong>.git</strong>，这个不算工作区，而是Git的版本库。</p>
+<p>Git的版本库里存了很多东西，其中最重要的就是称为<strong>stage</strong>（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支<strong>master</strong>，以及指向master的一个指针叫HEAD。</p>
+<p><img src="/images/提交.jpg" alt=""></p>
+<p><code>git add</code>命令实际上就是把要提交的所有修改放到暂存区（Stage），然后，执行<code>git commit</code>就可以一次性把暂存区的所有修改提交到分支。</p>
+<p>一旦提交后，如果你又没有对工作区做任何修改，那么工作区就是“干净”的<code>git status</code>：</p>
+<p><img src="/images/stage空.jpg" alt=""></p>
+<h5 id="六、撤销修改"><a href="#六、撤销修改" class="headerlink" title="六、撤销修改"></a>六、撤销修改</h5><ol>
+<li><p><code>git checkout -- file</code>  可以丢弃工作区的修改</p>
+</li>
+<li><p><code>git reset HEAD file</code>   ==》 1     可以丢弃暂存区的修改</p>
+</li>
+<li><p>版本回 退：提交了不合适的修改到版本库时，想要撤销本次提交</p>
+</li>
+</ol>
+<h5 id="七、删除文件"><a href="#七、删除文件" class="headerlink" title="七、删除文件"></a>七、删除文件</h5><ol>
+<li><p>从版本库中删除该文件，那就用命令<code>git rm</code>删掉，并且<code>git commit</code></p>
+</li>
+<li><p><code>git checkout</code>   用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”</p>
+</li>
+</ol>
+<h5 id="八、远程库的管理"><a href="#八、远程库的管理" class="headerlink" title="八、远程库的管理"></a>八、远程库的管理</h5><p><code>git remote add origin git@server-name:path/repo-name.git</code>   关联远程库</p>
+<p><code>git push -u origin master</code>    第一次推送master分支的内容到远程库</p>
+<p><code>git push origin maste</code>   之后推送最新修改；</p>
+<h5 id="九、克隆远程库"><a href="#九、克隆远程库" class="headerlink" title="九、克隆远程库"></a>九、克隆远程库</h5><p><code>git clone git@github.tgqnnanman/kkkk.git</code>    这里是用的ssh协议，也有https可选</p>
+<h5 id="十、杂杂的"><a href="#十、杂杂的" class="headerlink" title="十、杂杂的"></a>十、杂杂的</h5><p>######<strong>偷懒命令</strong></p>
+<ul>
+<li><code>git lg</code> 提交的情况-别名</li>
+</ul>
+<p><code>git config --global alias.lg &quot;log --color --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&#39; --abbrev-commit&quot;</code></p>
+<ul>
+<li><code>git last</code>   最后一次提交情况-别名</li>
+</ul>
+<p><code>git config --global alias.last &#39;log -1&#39;</code></p>
+<p><img src="/images/bieming01.png" alt=""><br><img src="/images/bieming02.png" alt=""></p>
+<h5 id="分支系列命令分支系列命令"><a href="#分支系列命令分支系列命令" class="headerlink" title="分支系列命令分支系列命令"></a>分支系列命令分支系列命令</h5><p>查看分支：<code>git branch</code></p>
+<p>创建分支：<code>git branch &lt;name&gt;</code></p>
+<p>切换分支：<code>git checkout &lt;name&gt;</code></p>
+<p>创建+切换分支：<code>git checkout -b &lt;name&gt;</code></p>
+<p>合并某分支到当前分支：<code>git merge &lt;name&gt;</code></p>
+<p>删除分支：<code>git branch -d &lt;name&gt;</code></p>
+<h6 id="在分支提交到远程库部骤："><a href="#在分支提交到远程库部骤：" class="headerlink" title="在分支提交到远程库部骤："></a>在分支提交到远程库部骤：</h6><p><code>git add.</code>  =&gt;  <code>git commit -m &quot;注释&quot;</code>  =&gt;  <code>git push origin &lt;当前分支名&gt;</code></p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持啊其</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/wechat-reward-image.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/alipay-reward-image.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/03/24/Chrome的调试工具/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2016/05/25/常用Dos命令/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+  <section class="duoshuo-comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-git-bash总结" 
+      data-title="git-bash总结" data-url="http://yoursite.com/2016/04/17/git-bash总结/index.html"></div>
+    <!-- 多说评论框 end -->
+  </section>
+
+
+
+
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:"blog-commit"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
