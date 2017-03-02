@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Js深入浅出小结（一） | 博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Js深入浅出," />
+  
+
+  <meta name="description" content="弱类型特性
+12345var num = 32;num = &apos;this a string&apos;;32 + 32`;  // 64&apos;32&apos; + 32`;  // &apos;3232&apos;32&apos; - 32`;  // 0
+
+巧用+/-规则转换类型
+
+数字： num - 0
+字符串： num + &amp;#39;&amp;#39;
+
+
+数据类型：
+
+原始(基础)类型： number string boolean null unde">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Js深入浅出小结（一）">
+<meta property="og:url" content="http://yoursite.com/2016/04/02/Js深入浅出小结（一）/index.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="弱类型特性
+12345var num = 32;num = &apos;this a string&apos;;32 + 32`;  // 64&apos;32&apos; + 32`;  // &apos;3232&apos;32&apos; - 32`;  // 0
+
+巧用+/-规则转换类型
+
+数字： num - 0
+字符串： num + &amp;#39;&amp;#39;
+
+
+数据类型：
+
+原始(基础)类型： number string boolean null unde">
+<meta property="og:image" content="http://yoursite.com/images/instanceof (1">
+<meta property="og:image" content="http://yoursite.com/images/instanceof (2">
+<meta property="og:updated_time" content="2017-03-02T08:55:01.524Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Js深入浅出小结（一）">
+<meta name="twitter:description" content="弱类型特性
+12345var num = 32;num = &apos;this a string&apos;;32 + 32`;  // 64&apos;32&apos; + 32`;  // &apos;3232&apos;32&apos; - 32`;  // 0
+
+巧用+/-规则转换类型
+
+数字： num - 0
+字符串： num + &amp;#39;&amp;#39;
+
+
+数据类型：
+
+原始(基础)类型： number string boolean null unde">
+<meta name="twitter:image" content="http://yoursite.com/images/instanceof (1">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-Js深入浅出小结（一）" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Js深入浅出小结（一）</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.04.02</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>啊其</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+        <i class="icon-comment"></i> 
+        <span class="ds-thread-count" data-thread-key="post-Js深入浅出小结（一）"><i class="fa fa-spinner fa-spin"></i></span> 条评论
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <ol>
+<li><p>弱类型特性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num = <span class="number">32</span>;</div><div class="line">num = <span class="string">'this a string'</span>;</div><div class="line"><span class="number">32</span> + <span class="number">32</span><span class="string">`;  // 64</span></div><div class="line">'32' + 32`;  <span class="comment">// '3232</span></div><div class="line"><span class="string">'32'</span> - <span class="number">32</span><span class="string">`;  // 0</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>巧用+/-规则转换类型</p>
+<ul>
+<li>数字： <code>num - 0</code></li>
+<li>字符串： <code>num + &#39;&#39;</code></li>
+</ul>
+</li>
+<li><p>数据类型：</p>
+<ul>
+<li>原始(基础)类型： <strong>number string boolean null undefined</strong></li>
+<li>引用类型(object 对象)： <strong>Function Array Date …</strong></li>
+</ul>
+</li>
+<li><p>a == b:</p>
+<ul>
+<li>类型不同，尝试类型转换和比较:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="literal">null</span> == <span class="literal">undefined</span>   <span class="comment">// 返回true</span></div><div class="line">   number == string    <span class="comment">// string转number,1 == '1.0'  , 返回true</span></div><div class="line">   bollean == number    <span class="comment">// boolean转number  1 == ture ,返回true</span></div><div class="line">   object == number | string   <span class="comment">// string尝试对象转为基本类型， new String('hi') == 'hi',  返回true</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>类型相同，返回true</p>
+<ol>
+<li>a === b:</li>
+</ol>
+</li>
+<li>类型不同: 返回false</li>
+<li><p>类型相同: null === null  </p>
+<pre><code>undefined ==== undefined   
+NaN ≠ NaN
+new Object ≠ new Object
+</code></pre><ol>
+<li><p>字符串属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="string">'string'</span>;</div><div class="line"> alert(a.length);   <span class="comment">// 6</span></div><div class="line"> a.t = <span class="number">3</span>;</div><div class="line"> alert(a.t) <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>类型检测</p>
+</li>
+</ol>
+<ul>
+<li>constructor</li>
+<li>duck type</li>
+<li><p>Object.prototype</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span>.prototype.toString.apply([]);	===<span class="string">`"[object Array]"</span></div><div class="line">Object.prototype.toString.apply(function()&#123;&#125;);	===`<span class="string">"[object Function]"</span></div><div class="line"><span class="built_in">Object</span>.prototype.toString.apply(<span class="literal">null</span>);	===<span class="string">`"[object Null]"</span></div><div class="line">Object.prototype.toString.apply(undefined);	===`<span class="string">"[object Undefined]"</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>typeof</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">typeof 100;	// "number"</div><div class="line">typeof true;	// "boolean"</div><div class="line">typeof function;	// "function"</div><div class="line">typeof (undefined);	// "undefined"</div><div class="line">typeof new Object;	// "object"</div><div class="line">typeof [1,2];	// "object"</div><div class="line">typeof NaN;	// "number"</div><div class="line">typeof null;	// "object"</div></pre></td></tr></table></figure>
+</li>
+<li><p>instanceof<br><img src="/images/instanceof (1" alt="instanceof">.png)<br><img src="/images/instanceof (2" alt="instanceof">.png)</p>
+</li>
+</ul>
+</li>
+<li><p>小结：typeof适合基本类型及function检测，遇到null失效，instanceof适合自定义对象，也可以用来检测原生对象，在不同iframe和window间检测时失效。[[Class]]通过{}.toString拿到，适合内置对象和基本类型，遇到null和undefined失效（IE678等返回[object Object]）</p>
+</li>
+</ul>
+<ol>
+<li>表达式</li>
+</ol>
+<ul>
+<li><p>调用表达式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">func();</div></pre></td></tr></table></figure>
+</li>
+<li><p>函数表达式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</div><div class="line">							<span class="keyword">return</span> x;</div><div class="line">					&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>函数声明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function test(x)&#123;</div><div class="line">		return x;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>区别</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">　   test(<span class="number">1</span>);</div><div class="line">　　<span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">x</span>)</span>&#123;</div><div class="line">　　　　<span class="built_in">console</span>.log(x);</div><div class="line">　　&#125;	<span class="comment">// 输出1</span></div><div class="line"></div><div class="line">　　<span class="keyword">var</span> test;   <span class="comment">//函数变量声明提前</span></div><div class="line">　　test(<span class="number">1</span>);</div><div class="line">　　<span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</div><div class="line">　　　　<span class="built_in">console</span>.log(x);</div><div class="line">　　&#125;	<span class="comment">//报错test不是一个函数的错误</span></div></pre></td></tr></table></figure>
+<ul>
+<li><p>属性访问表达式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> o = &#123;<span class="attr">x</span>:<span class="number">1</span>&#125;;</div><div class="line">o.x;	<span class="comment">// 1</span></div><div class="line">o[<span class="string">'x'</span>]	<span class="comment">// 1</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>对象创建表达式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">new Function(1,2);</div><div class="line">new Object</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>运算符</li>
+</ol>
+<ul>
+<li><p>特殊运算符<br>条件运算符 ？<br>逗号运算符 ,<br>new运算符    newClsName()<br>this运算符<br>typeof运算符    typeof 100<br>void运算符    void0<br>delete运算符<br>in运算符 “document” in window<br>instanceof运算符    obj instanceof Func</p>
+</li>
+<li><p>一元    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">+num</div></pre></td></tr></table></figure>
+</li>
+<li><p>二元    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a+b</div></pre></td></tr></table></figure>
+</li>
+<li><p>三元    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">c?a:b</div></pre></td></tr></table></figure>
+</li>
+<li><p>赋值    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x += 1</div></pre></td></tr></table></figure>
+</li>
+<li><p>比较    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a == b</div></pre></td></tr></table></figure>
+</li>
+<li><p>算术    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a - b</div></pre></td></tr></table></figure>
+</li>
+<li><p>位    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a | b</div></pre></td></tr></table></figure>
+</li>
+<li><p>逻辑    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exp1&amp;&amp;exp2</div></pre></td></tr></table></figure>
+</li>
+<li><p>字符串    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&apos;a&apos; + &apos;b&apos;</div></pre></td></tr></table></figure>
+</li>
+<li><p>特殊    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">delete obj.x</div></pre></td></tr></table></figure>
+</li>
+<li><p>运算符 <code>，</code></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var value = (1,2,3);	// value = 3</div></pre></td></tr></table></figure>
+<ul>
+<li><p>运算符 <code>delete</code><br>var obj = {};<br>Object.defineProperty(obj, ‘x’, {<br>configurable : false;<br>value : 1;<br>} );<br>delete obj.x;    //false<br>obj.x;    //1</p>
+</li>
+<li><p>运算符<code>new</code></p>
+</li>
+</ul>
+<p>function Foo(){};<br>Foo.prototype.x = 1;<br>obj.x;    // 1<br>obj.hasOwnProperty(‘x’);    // false<br>obj.<em>proto</em>.hasOwnProperty(‘x’);    // true</p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持啊其</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/wechat-reward-image.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/alipay-reward-image.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/03/25/自适应的小demo/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2016/04/03/Js深入浅出小结（三） /">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+  <section class="duoshuo-comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-Js深入浅出小结（一）" 
+      data-title="Js深入浅出小结（一）" data-url="http://yoursite.com/2016/04/02/Js深入浅出小结（一）/index.html"></div>
+    <!-- 多说评论框 end -->
+  </section>
+
+
+
+
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:"blog-commit"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

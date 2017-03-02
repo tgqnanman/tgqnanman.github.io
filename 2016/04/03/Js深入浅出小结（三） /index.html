@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Js深入浅出小结（三） | 博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Js深入浅出," />
+  
+
+  <meta name="description" content="创建数组-字面量12var students = [&amp;#123;name:&amp;apos;tom&amp;apos;,age:27&amp;#125;,&amp;#123;name:&amp;apos;Jenny&amp;apos;,age:26&amp;#125;]var commasArr1 = [1,,2];	// 1,undefined,2
+
+
+-创建数组-new Array1var arr = new Array();
+
+数组元素增删1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Js深入浅出小结（三）">
+<meta property="og:url" content="http://yoursite.com/2016/04/03/Js深入浅出小结（三） /index.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="创建数组-字面量12var students = [&amp;#123;name:&amp;apos;tom&amp;apos;,age:27&amp;#125;,&amp;#123;name:&amp;apos;Jenny&amp;apos;,age:26&amp;#125;]var commasArr1 = [1,,2];	// 1,undefined,2
+
+
+-创建数组-new Array1var arr = new Array();
+
+数组元素增删1">
+<meta property="og:updated_time" content="2017-03-02T08:56:39.868Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Js深入浅出小结（三）">
+<meta name="twitter:description" content="创建数组-字面量12var students = [&amp;#123;name:&amp;apos;tom&amp;apos;,age:27&amp;#125;,&amp;#123;name:&amp;apos;Jenny&amp;apos;,age:26&amp;#125;]var commasArr1 = [1,,2];	// 1,undefined,2
+
+
+-创建数组-new Array1var arr = new Array();
+
+数组元素增删1">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-Js深入浅出小结（三） " class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Js深入浅出小结（三）</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.04.03</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>啊其</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+        <i class="icon-comment"></i> 
+        <span class="ds-thread-count" data-thread-key="post-Js深入浅出小结（三） "><i class="fa fa-spinner fa-spin"></i></span> 条评论
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <ul>
+<li>创建数组-字面量<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var students = [&#123;name:&apos;tom&apos;,age:27&#125;,&#123;name:&apos;Jenny&apos;,age:26&#125;]</div><div class="line">var commasArr1 = [1,,2];	// 1,undefined,2</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>-创建数组-new Array<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var arr = new Array();</div></pre></td></tr></table></figure></p>
+<ul>
+<li>数组元素增删<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arr = [];</div><div class="line">arr[0] = 1;</div><div class="line">arr[1] = 2;</div><div class="line">arr.push(3);</div><div class="line">arr;	// [1,2,3]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arr[arr.length] = 4;	// equal to arr.push(4);</div><div class="line">arr;	//[1,2,3,4]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arr.unshift(0);</div><div class="line">arr;	//[0,1,2,3,4];</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">delete arr[2];</div><div class="line">arr;	// [0,1,undefined,3,4]</div><div class="line">arr.length;	//5</div><div class="line">2 in arr;	//false</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arr.length -=1;</div><div class="line">arr;	//[0,1,undefined,3]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arr.pop();</div><div class="line">arr;	//[0,1,undefined]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arr.shift();</div><div class="line">arr;	// [1,undefined]</div></pre></td></tr></table></figure>
+<ul>
+<li>数组迭代<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var i = 0, n = 10;</div><div class="line">var arr = [1,2,3,4,5];</div><div class="line">for(; i&lt;n; i++)&#123;</div><div class="line">	console.log(arr[i]);	//1,2,3,4,5</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for(i in arr)&#123;</div><div class="line">	console.log(arr[i]);	//1,2,3,4,5</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Array.prototype.x = 6;</div><div class="line">for(i in arr)&#123;</div><div class="line">	console.log(arr[i]);	//1,2,3,4,5,6</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for(i in arr)&#123;</div><div class="line">	if(arr.hasOwnProperty(i))&#123;</div><div class="line">		console.log(arr[i]);	//1,2,3,4,5</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>稀疏数组并不今有从0开始的连续索引，一般length属性值比实际元素个数大。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var arr1 = [undefined];</div><div class="line">var arr2 = new Array(1);</div><div class="line">0 in arr1;	//true</div><div class="line">0 in arr2;	//false</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">arr1.length = 100;</div><div class="line">arr1[99] = 123;</div><div class="line">99 in arr1;	//true</div><div class="line">98 in arr1;	//false</div></pre></td></tr></table></figure>
+<ul>
+<li>将数组转为字符串 Array.prototype.join<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var arr = [1,2,3];</div><div class="line">arr.join();	// &quot;1,2,3&quot;</div><div class="line">arr.join(&quot;-&quot;);	// &quot;1-2-3&quot;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function repeatString(str, n)&#123;</div><div class="line">	return new Array(n+1).join(str);</div><div class="line">&#125;</div><div class="line">repeatString(&quot;a&quot;,3);	// &quot;aaa&quot;</div><div class="line">repeatString(&apos;Hi&apos;,5);	// &quot;HiHiHiHiHi&quot;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>将数组逆序 Array.prototype.reverse</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var arr = [1,2,3];</div><div class="line">arr.reverse();	// [3,2,1]</div><div class="line">arr;	// [3,2,1]</div></pre></td></tr></table></figure>
+</li>
+<li><p>排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var arr = [&quot;a&quot;,&apos;d&apos;,&apos;b&apos;,&apos;c];</div><div class="line">arr.sort();	//	[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">arr01 = [13,24,51,3]</div><div class="line">arr01.sort(function(a,b)&#123;</div><div class="line">	return a-b;</div><div class="line">&#125;);	// [3,13,24,51]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">arr02 = [&#123;age:25&#125;,&#123;age:39&#125;];</div><div class="line">arr02.sort(function(a,b)&#123;</div><div class="line">	return a.age - b.age;</div><div class="line">&#125;)</div><div class="line">arr02.forEach(function(item)&#123;</div><div class="line">	console.log(&apos;age:&apos;,item.age)</div><div class="line">&#125;);	//age:25 age:39</div></pre></td></tr></table></figure>
+<ul>
+<li>数组合并    Array.prototype.concat<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var arr = [1,2,3];</div><div class="line">arr.concat(4,5);	//[1,2,3,4,5]</div><div class="line">arr;	// [1,2,3]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arr.concat([4,5],6);	//[1,2,3,4,5,6]</div><div class="line">arr.concat([1,[2,3]]);	//[1,2,3,1,[2,3]]</div></pre></td></tr></table></figure>
+<ul>
+<li><p>返回部分数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var arr = [1,2,3,4,5];</div><div class="line">arr.slice(1,3);	// [2,3]</div><div class="line">arr.slice(1);	//[2,3,4]</div><div class="line">arr.slice(1,-1);	// [2,3,4]</div></pre></td></tr></table></figure>
+</li>
+<li><p>数组拼接</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var arr = [1,2,3,4,5]</div><div class="line">arr.splice(2);	// returns [3,4,5]</div><div class="line">arr;	//[1,2]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr = [1,2,3,4,5];</div><div class="line">arr.splice(1,1,&apos;a&apos;,&apos;b&apos;);	//returns [2]</div><div class="line">arr;	//[1,&apos;a&apos;,&apos;b&apos;,3,4,5]</div></pre></td></tr></table></figure>
+<ul>
+<li><p>数组遍历 Array.prototype.forEach</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var arr =[1,2,3,4,5];</div><div class="line">arr.forEach(function(x,inde,a)&#123;</div><div class="line">	console.log(x + &apos;|&apos; + index + &apos;|&apos; +(a === arr));</div><div class="line">&#125;);	// 1|0|true 2|1|true ...  5|4|true</div></pre></td></tr></table></figure>
+</li>
+<li><p>数组映射</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arr = [1,2,3];</div><div class="line">arr.map(function(x)&#123;</div><div class="line">	return x + 10;</div><div class="line">&#125;);	//[11,12,13]</div><div class="line">arr;	//[1,2,3]</div></pre></td></tr></table></figure>
+</li>
+<li><p>数组过滤</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arr = [1,2,3,4,5,6,7,8,9]</div><div class="line">arr.filter(function(x,index)&#123;</div><div class="line">	return index%3 === 0 || x &gt;= 8;</div><div class="line">&#125;);	// returns [1,4,7,8,9]</div><div class="line">arr;	// [1,2,3,4,5,6,7,8,9]</div></pre></td></tr></table></figure>
+</li>
+<li><p>数组判断    Array.prototype.every&amp;some</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var arr = [1,2,3,4,5];</div><div class="line">arr.every(function(x)&#123;</div><div class="line">	return x &lt; 10;</div><div class="line">&#125;);	//true</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr.some(function(x)&#123;</div><div class="line">	return x ===3;</div><div class="line">&#125;);	//true</div></pre></td></tr></table></figure>
+<ul>
+<li><p>Array.prototype.reduce</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">arr = [3,9,6]</div><div class="line">var max = arr.reduce(function(x,y)&#123;</div><div class="line">	console.log(x + &apos;|&apos; + y);</div><div class="line">	return x &gt; y?x:y;</div><div class="line">&#125;);	// 3|9 9|6 </div><div class="line">max;	//9</div></pre></td></tr></table></figure>
+</li>
+<li><p>数组检索</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arr = [1,2,3,2,1];</div><div class="line">arr.indexOf(2);	//1</div><div class="line">arr.indexOf(99);	//-1</div><div class="line">arr.indexOf(1,1);	// 4</div><div class="line">arr.lastIndexOf(2);	//3</div></pre></td></tr></table></figure>
+</li>
+<li><p>判断是否为数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Array.isArray([]);	//true</div><div class="line">[] instanceof Array;	//true</div><div class="line">(&#123;&#125;).toString.apply([]) === &apos;[object Array]&apos;;	//true</div><div class="line">[].constructor === Array;	// true</div></pre></td></tr></table></figure>
+</li>
+<li><p>数组 VS 一般对象</p>
+</li>
+</ul>
+<p>1、相同：都可能继承，数组是对象，对象不一定是数组。都可以当做对象添加删除属性<br>2、不同：数组自动更新length; 按索引访问数组常常比访问一般对象属性明显迅速; 数组对象继承Array.prototype上的大量数组操作方法</p>
+<ul>
+<li>字符串和数组<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;hello world&apos;</div><div class="line">str.charAt(0);	// &apos;h&apos;</div><div class="line">str[1];	// e</div><div class="line">Array.prototype.join.call(str,&apos;_&apos;);	// &quot;h_e_l_....&quot;</div></pre></td></tr></table></figure></li>
+</ul>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持啊其</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/wechat-reward-image.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/alipay-reward-image.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/04/02/Js深入浅出小结（一）/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/01/26/blog常用命令/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+  <section class="duoshuo-comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-Js深入浅出小结（三） " 
+      data-title="Js深入浅出小结（三）" data-url="http://yoursite.com/2016/04/03/Js深入浅出小结（三） /index.html"></div>
+    <!-- 多说评论框 end -->
+  </section>
+
+
+
+
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:"blog-commit"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
