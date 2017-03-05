@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>JS深入浅出小结（五） | 博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Js深入浅出," />
+  
+
+  <meta name="description" content="变量对象每个执行环境都有一个与之关联的变量对象，这个对象存储着在环境中定义的以下内容：
+
+函数的形参
+var声明的变量
+函数声明(不包括函数表达式)
+
+举例来说，用一个普通对象来表示变量对象，它是执行环境的一个属性：
+  12345执行环境 = &amp;#123;   变量对象:&amp;#123;       //环境中的数据    &amp;#125;&amp;#125;;
+例如：  12345var a = 10;fun">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS深入浅出小结（五）">
+<meta property="og:url" content="http://yoursite.com/2016/04/11/JS深入浅出小结（五）/index.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="变量对象每个执行环境都有一个与之关联的变量对象，这个对象存储着在环境中定义的以下内容：
+
+函数的形参
+var声明的变量
+函数声明(不包括函数表达式)
+
+举例来说，用一个普通对象来表示变量对象，它是执行环境的一个属性：
+  12345执行环境 = &amp;#123;   变量对象:&amp;#123;       //环境中的数据    &amp;#125;&amp;#125;;
+例如：  12345var a = 10;fun">
+<meta property="og:updated_time" content="2017-03-05T07:01:55.969Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS深入浅出小结（五）">
+<meta name="twitter:description" content="变量对象每个执行环境都有一个与之关联的变量对象，这个对象存储着在环境中定义的以下内容：
+
+函数的形参
+var声明的变量
+函数声明(不包括函数表达式)
+
+举例来说，用一个普通对象来表示变量对象，它是执行环境的一个属性：
+  12345执行环境 = &amp;#123;   变量对象:&amp;#123;       //环境中的数据    &amp;#125;&amp;#125;;
+例如：  12345var a = 10;fun">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#变量对象"><span class="toc-text">变量对象</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#例如："><span class="toc-text">例如：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#对应的变量对象为："><span class="toc-text">对应的变量对象为：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包-概念"><span class="toc-text">闭包-概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包的例子"><span class="toc-text">闭包的例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两个循环"><span class="toc-text">两个循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包-封装"><span class="toc-text">闭包-封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浅出理解-执行上下文"><span class="toc-text">浅出理解-执行上下文</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ECMAScript可执行代码的类型"><span class="toc-text">ECMAScript可执行代码的类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#主要有三个属性："><span class="toc-text">主要有三个属性：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#变量对象-variable-object"><span class="toc-text">变量对象(variable object)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#作用域链"><span class="toc-text">作用域链</span></a></li></ol></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-JS深入浅出小结（五）" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">JS深入浅出小结（五）</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.04.11</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>啊其</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+        <i class="icon-comment"></i> 
+        <span class="ds-thread-count" data-thread-key="post-JS深入浅出小结（五）"><i class="fa fa-spinner fa-spin"></i></span> 条评论
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h3 id="变量对象"><a href="#变量对象" class="headerlink" title="变量对象"></a>变量对象</h3><p>每个执行环境都有一个与之关联的变量对象，这个对象存储着在环境中定义的以下内容：</p>
+<ol>
+<li>函数的形参</li>
+<li>var声明的变量</li>
+<li>函数声明(不包括函数表达式)</li>
+</ol>
+<p>举例来说，用一个普通对象来表示变量对象，它是执行环境的一个属性：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">执行环境 = &#123;</div><div class="line">   变量对象:&#123;</div><div class="line">       <span class="comment">//环境中的数据</span></div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h5 id="例如："><a href="#例如：" class="headerlink" title="例如："></a>例如：</h5>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">x</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> b = <span class="number">20</span>;</div><div class="line">&#125;;</div><div class="line">test(<span class="number">30</span>);</div></pre></td></tr></table></figure>
+<h5 id="对应的变量对象为："><a href="#对应的变量对象为：" class="headerlink" title="对应的变量对象为："></a>对应的变量对象为：</h5>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 全局执行环境的变量对象</span></div><div class="line">全局环境的变量对象= &#123;</div><div class="line">  <span class="attr">a</span>: <span class="number">10</span>,</div><div class="line">  <span class="attr">test</span>: 指向test()函数</div><div class="line">&#125;;</div><div class="line"> </div><div class="line"><span class="comment">// test函数执行环境的变量对象</span></div><div class="line">test函数环境的变量对象 = &#123;</div><div class="line">  <span class="attr">x</span>: <span class="number">30</span>,</div><div class="line">  <span class="attr">b</span>: <span class="number">20</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="闭包-概念"><a href="#闭包-概念" class="headerlink" title="闭包-概念"></a>闭包-概念</h3><p>闭包（也称词法闭包或函数闭包）是指一个函数或函数的引用，与一个引用环境绑定在一起。这个引用环境是一个存储该函数每个非局部变量(也叫自由变量变量)的表。<br>闭包，不同于一般的函数，它允许一个函数在立即词法作用域外调用时，仍可访问非本地变量。</p>
+<h3 id="闭包的例子"><a href="#闭包的例子" class="headerlink" title="闭包的例子"></a>闭包的例子</h3> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> localVal = <span class="number">30</span>;</div><div class="line">	<span class="keyword">return</span> loacalVal;</div><div class="line">&#125;</div><div class="line">outer();	<span class="comment">// 30</span></div></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> loacalVal = <span class="number">20</span>;</div><div class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> loacalVal;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> func = outer();</div><div class="line">func();	<span class="comment">// 20</span></div></pre></td></tr></table></figure>
+<h3 id="两个循环"><a href="#两个循环" class="headerlink" title="两个循环"></a>两个循环</h3><ul>
+<li>闭包共用一个[[scope]]的问题</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.body.innerHTML = <span class="string">'&lt;div id = div1&gt;aaa&lt;/div&gt;&lt;div id = div2&gt;bbb&lt;/div&gt;&lt;div id = div3&gt;ccc&lt;/div&gt;'</span>;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>; i&lt;<span class="number">4</span>; i++)&#123;</div><div class="line">	<span class="built_in">document</span>.getElementById(<span class="string">'div'</span>+i).</div><div class="line">			addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				<span class="built_in">console</span>.log(i);	<span class="comment">// all are 4 !!!</span></div><div class="line">	&#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> data = [];</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> k = <span class="number">0</span>; k &lt; <span class="number">3</span>; k++) &#123;</div><div class="line">  	data[k] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  	 		 alert(k);</div><div class="line">	  &#125;;</div><div class="line">&#125;</div><div class="line">data[<span class="number">0</span>](); <span class="comment">// 3, 而不是0</span></div><div class="line">data[<span class="number">1</span>](); <span class="comment">// 3, 而不是1</span></div><div class="line">data[<span class="number">2</span>](); <span class="comment">// 3, 而不是2</span></div></pre></td></tr></table></figure>
+<ul>
+<li><p>[[scope]]是所有父变量对象的层级链，处于当前函数环境，在函数创建时存在于其中。<br>注意重要的一点：[[scope]]属性在函数创建时被存储，永远不变，直到函数销毁。函数可以不被调用，但这个属性一直存在。且，与作用域链相比，作用域链是执行环境的一个属性，而[[scope]]是函数的属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.body.innerHTML = <span class="string">'&lt;div id = div1&gt;aaa&lt;/div&gt;&lt;div id = div2&gt;bbb&lt;/div&gt;&lt;div id = div3&gt;ccc&lt;/div&gt;'</span>;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>; i&lt;<span class="number">4</span>; i++)&#123;</div><div class="line"> 	(<span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123;</div><div class="line">	<span class="built_in">document</span>.getElementById(<span class="string">'div'</span>+i).</div><div class="line">			addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="built_in">console</span>.log(i);	<span class="comment">// 1,2,3</span></div><div class="line">		&#125;);</div><div class="line">&#125;)(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> data = [];</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> k = <span class="number">0</span>; k &lt; <span class="number">3</span>; k++) &#123;</div><div class="line">  data[k] = (<span class="function"><span class="keyword">function</span> <span class="title">_helper</span>(<span class="params">x</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      alert(x);</div><div class="line">    &#125;;</div><div class="line">  &#125;)(k); <span class="comment">// 传入"k"值</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 现在结果是正确的了</span></div><div class="line">data[<span class="number">0</span>](); <span class="comment">// 0</span></div><div class="line">data[<span class="number">1</span>](); <span class="comment">// 1</span></div><div class="line">data[<span class="number">2</span>](); <span class="comment">// 2</span></div></pre></td></tr></table></figure>
+<ul>
+<li>在上例中，每次_helper都会创建一个新的变量对象，其中含有参数x，其值就是传递进来的k值。此时，返回的函数的[[scope]]如下：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">data[<span class="number">0</span>].[[Scope]] === [</div><div class="line">  ... <span class="comment">// 其它变量对象</span></div><div class="line">  父级环境中的活动对象: &#123;<span class="attr">data</span>: [...], <span class="attr">k</span>: <span class="number">3</span>&#125;,</div><div class="line">  _helper环境中的活动对象: &#123;<span class="attr">x</span>: <span class="number">0</span>&#125;</div><div class="line">];</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="闭包-封装"><a href="#闭包-封装" class="headerlink" title="闭包-封装"></a>闭包-封装</h3>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> userId = <span class="number">369</span>;</div><div class="line">	<span class="keyword">var</span> userName = <span class="string">'Tom'</span>;</div><div class="line">	<span class="keyword">var</span> exportt  = &#123;&#125;;</div><div class="line">	exportt.getId = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> userId;</div><div class="line">	&#125;</div><div class="line">	exportt.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> userName;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">window</span>.exportt = exportt;</div><div class="line"></div><div class="line">&#125;());</div><div class="line"></div><div class="line">exportt.userId;	<span class="comment">// defined</span></div><div class="line">exportt.getId();	<span class="comment">// 369</span></div><div class="line">exportt.getName();	<span class="comment">// Tom</span></div></pre></td></tr></table></figure>
+<h3 id="浅出理解-执行上下文"><a href="#浅出理解-执行上下文" class="headerlink" title="浅出理解-执行上下文"></a>浅出理解-执行上下文</h3><h4 id="ECMAScript可执行代码的类型"><a href="#ECMAScript可执行代码的类型" class="headerlink" title="ECMAScript可执行代码的类型"></a>ECMAScript可执行代码的类型</h4><p>包括：全局代码global、函数代码function、eval()代码。<br>执行流转到可执行代码，进入一个执行环境。活动执行环境构成一个栈：栈的底部始终是全局环境，顶部是当前活动的执行环境。</p>
+<ul>
+<li><p>全局执行环境是最外围的一个执行环境。在浏览器中，全局环境就是window对象，因此所有全局变量和函数都是作为window对象的属性和方法创建的。</p>
+</li>
+<li><p>每个函数都有自己的执行环境。当执行流进入一个函数时，函数的环境被推入栈中。而在函数执行之后，栈将其环境弹出，把控制权返回给之前的执行环境。某个执行环境中的代码执行完后，该环境销毁，保存在其中的所有变量和函数定义也随之销毁。而全局执行环境直到应用程序退出才会被销毁。</p>
+</li>
+<li><p>eval的执行环境与调用环境的执行环境相同。</p>
+<ul>
+<li>全局、函数、eval</li>
+</ul>
+</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">10</span>; <span class="comment">// 全局上下文中的变量</span></div><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> b = <span class="number">20</span>; <span class="comment">// function上下文中的局部变量</span></div><div class="line">&#125;)();</div><div class="line">alert(a); <span class="comment">// 10</span></div><div class="line">alert(b); <span class="comment">// 全局变量 "b" 没有声明</span></div></pre></td></tr></table></figure>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">10</span>;	<span class="comment">//全局</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> b = <span class="number">20</span>;</div><div class="line">&#125;)();</div><div class="line"><span class="built_in">console</span>.log(a);	<span class="comment">// 10</span></div><div class="line"><span class="built_in">console</span>.log(b);	<span class="comment">// erro, b in not defined</span></div><div class="line"><span class="built_in">eval</span>(<span class="string">'2+3'</span>);	<span class="comment">//5</span></div></pre></td></tr></table></figure>
+<h4 id="主要有三个属性："><a href="#主要有三个属性：" class="headerlink" title="主要有三个属性："></a>主要有三个属性：</h4><p>变量对象(variable object)，this指针(this value)，作用域链(scope chain)。</p>
+<h5 id="变量对象-variable-object"><a href="#变量对象-variable-object" class="headerlink" title="变量对象(variable object)"></a>变量对象(variable object)</h5><p>是与执行上下文相关的 数据作用域(scope of data) 。 它是与上下文关联的特殊对象，用于存储被定义在上下文中的 变量(variables) 和 函数声明(function declarations) 。 它是一个抽象的概念，不同的上下文中，它表示使用不同的object。例如，在global全局上下文中，变量对象也是全局对象自身[global object]。（这就是我们可以通过全局对象的属性来指向全局变量）。</p>
+<h5 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h5><p>的原理和原型链很类似，如果这个变量在自己的作用域中没有，那么它会寻找父级的，直到最顶层。JS的语法风格和C/C++类似, 但作用域的实现却和C/C++不同，并非用“堆栈”方式，而是使用列表，<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123; </div><div class="line">  	<span class="keyword">var</span> y = <span class="number">20</span>; </div><div class="line"> 	 <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">   			 alert(x + y);</div><div class="line"> 	 &#125; ;</div><div class="line">	  <span class="keyword">return</span> bar; </div><div class="line">&#125;</div><div class="line"> </div><div class="line">foo()(); <span class="comment">// 30</span></div></pre></td></tr></table></figure></p>
+<p>JS里没有块级作用域这一说法，ES规范指出独立作用域只能通过函数（function）代码类型的执行环境创建。也就是说，像for循环并不能创建一个局部环境：</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> &#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;) &#123;</div><div class="line">  alert(k);	<span class="comment">// a,b</span></div><div class="line">&#125;</div><div class="line">alert(k); <span class="comment">//  b,尽管循环已经结束但变量k依然在当前作用域</span></div></pre></td></tr></table></figure>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持啊其</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/wechat-reward-image.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/alipay-reward-image.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/04/07/JS深入浅出小结（四）/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+  <section class="duoshuo-comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-JS深入浅出小结（五）" 
+      data-title="JS深入浅出小结（五）" data-url="http://yoursite.com/2016/04/11/JS深入浅出小结（五）/index.html"></div>
+    <!-- 多说评论框 end -->
+  </section>
+
+
+
+
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:"blog-commit"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
