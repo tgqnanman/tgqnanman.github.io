@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mysql的学习（一） | 博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Mysql," />
+  
+
+  <meta name="description" content="Mysql Server5.5的安装Download MySQL Community Server：msi下载地址
+
+默认配置安装Mysql    
+  
+   
+  
+
+
+
+配置环境变量
+C:\Program Files (x86)\MySQL\MySQL Server 5.5\bin（使得能够全局使用mysql）
+  
+
+自启动mysql服务
+然后在service.msc将mysqlaaaaQ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mysql的学习（一）">
+<meta property="og:url" content="http://yoursite.com/2018/03/28/Mysql的学习（一）/index.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="Mysql Server5.5的安装Download MySQL Community Server：msi下载地址
+
+默认配置安装Mysql    
+  
+   
+  
+
+
+
+配置环境变量
+C:\Program Files (x86)\MySQL\MySQL Server 5.5\bin（使得能够全局使用mysql）
+  
+
+自启动mysql服务
+然后在service.msc将mysqlaaaaQ">
+<meta property="og:image" content="http://yoursite.com/images/Mysql-images/mysql01.png">
+<meta property="og:image" content="http://yoursite.com/images/Mysql-images/mysql02.png">
+<meta property="og:image" content="http://yoursite.com/images/Mysql-images/mysql03.png">
+<meta property="og:image" content="http://yoursite.com/images/Mysql-images/mysql04.png">
+<meta property="og:image" content="http://yoursite.com/images/Mysql-images/mysql08.png">
+<meta property="og:image" content="http://yoursite.com/images/Mysql-images/mysql05.png">
+<meta property="og:image" content="http://yoursite.com/images/Mysql-images/mysql06.png">
+<meta property="og:image" content="http://yoursite.com/images/Mysql-images/mysql09.png">
+<meta property="og:image" content="http://yoursite.com/images/Mysql-images/mysql10.png">
+<meta property="og:image" content="http://yoursite.com/images/Mysql-images/mysql11.png">
+<meta property="og:image" content="http://yoursite.com/images/Mysql-images/mysql12.png">
+<meta property="og:updated_time" content="2018-03-28T05:51:00.171Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mysql的学习（一）">
+<meta name="twitter:description" content="Mysql Server5.5的安装Download MySQL Community Server：msi下载地址
+
+默认配置安装Mysql    
+  
+   
+  
+
+
+
+配置环境变量
+C:\Program Files (x86)\MySQL\MySQL Server 5.5\bin（使得能够全局使用mysql）
+  
+
+自启动mysql服务
+然后在service.msc将mysqlaaaaQ">
+<meta name="twitter:image" content="http://yoursite.com/images/Mysql-images/mysql01.png">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">Posts List</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Mysql-Server5-5的安装"><span class="toc-text">Mysql Server5.5的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#默认配置安装Mysql"><span class="toc-text">默认配置安装Mysql</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置环境变量"><span class="toc-text">配置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自启动mysql服务"><span class="toc-text">自启动mysql服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mysql的入门学习"><span class="toc-text">Mysql的入门学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#本地cmd的熟悉"><span class="toc-text">本地cmd的熟悉</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询语句的理解"><span class="toc-text">查询语句的理解</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-Mysql的学习（一）" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Mysql的学习（一）</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.03.28</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>啊其</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+        <i class="icon-comment"></i> 
+        <span class="ds-thread-count" data-thread-key="post-Mysql的学习（一）"><i class="fa fa-spinner fa-spin"></i></span> 条评论
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="Mysql-Server5-5的安装"><a href="#Mysql-Server5-5的安装" class="headerlink" title="Mysql Server5.5的安装"></a>Mysql Server5.5的安装</h2><p><strong>Download MySQL Community Server：<a href="https://dev.mysql.com/downloads/mysql/5.5.html#downloads" target="_blank" rel="external">msi下载地址</a></strong></p>
+<ul>
+<li><h3 id="默认配置安装Mysql"><a href="#默认配置安装Mysql" class="headerlink" title="默认配置安装Mysql"></a><strong>默认配置安装Mysql</strong></h3><p>  <img src="/images/Mysql-images/mysql01.png" width="500" height="150">  </p>
+<p>  <img src="/images/Mysql-images/mysql02.png" width="500" height="150"></p>
+<p>  <img src="/images/Mysql-images/mysql03.png" width="500" height="150"> </p>
+<p>  <img src="/images/Mysql-images/mysql04.png" width="500" height="150"></p>
+</li>
+</ul>
+<ul>
+<li><h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a><strong>配置环境变量</strong></h3></li>
+<li><p>C:\Program Files (x86)\MySQL\MySQL Server 5.5\bin（使得能够全局使用mysql）</p>
+<p>  <img src="/images/Mysql-images/mysql08.png" width="500" height="150"></p>
+</li>
+<li><h3 id="自启动mysql服务"><a href="#自启动mysql服务" class="headerlink" title="自启动mysql服务"></a><strong>自启动mysql服务</strong></h3></li>
+<li>然后在service.msc将mysqlaaaaQ（这里是你配置的名字）服务设为自动，这样在开机将能直接通过下命令打开本地数据库（默认端口为3306，因为还安装了别本地数据库例如mongodb，就此指定3307端口打开mysql）</li>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -h localhost -P3307 -u root -p</div></pre></td></tr></table></figure>
+<p>   <img src="/images/Mysql-images/mysql05.png" width="500" height="150">     </p>
+<p>   <img src="/images/Mysql-images/mysql06.png" width="500" height="150"></p>
+</li>
+</ul>
+<h2 id="Mysql的入门学习"><a href="#Mysql的入门学习" class="headerlink" title="Mysql的入门学习"></a>Mysql的入门学习</h2><ul>
+<li><h3 id="本地cmd的熟悉"><a href="#本地cmd的熟悉" class="headerlink" title="本地cmd的熟悉"></a><strong>本地cmd的熟悉</strong></h3><p>   <img src="/images/Mysql-images/mysql09.png" width="500" height="150"></p>
+</li>
+<li><h3 id="查询语句的理解"><a href="#查询语句的理解" class="headerlink" title="查询语句的理解"></a><strong>查询语句的理解</strong></h3><p>   <img src="/images/Mysql-images/mysql10.png" width="500" height="110"> </p>
+<p>   <img src="/images/Mysql-images/mysql11.png" width="500" height="110">  </p>
+<p>   <img src="/images/Mysql-images/mysql12.png" width="500" height="110"></p>
+</li>
+</ul>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持啊其</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/wechat-reward-image.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/alipay-reward-image.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2018/03/23/test20180323/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">Close</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+  <section class="duoshuo-comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-Mysql的学习（一）" 
+      data-title="Mysql的学习（一）" data-url="http://yoursite.com/2018/03/28/Mysql的学习（一）/index.html"></div>
+    <!-- 多说评论框 end -->
+  </section>
+
+
+
+
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:"blog-commit"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
