@@ -15,26 +15,17 @@
     <meta name="keywords" content="学xx有笔记," />
   
 
-  <meta name="description" content="弹性布局Flex定义的容器可以对块级元素(display: flex;)或行内元素(display: inline-flex;)生效。若父元素定义了Flex容器，则子元素的float、clear、vertical-align属性将会失效。
-
-
-概念flex容器(flex container)、flex项目(flex item)、主轴(main axis)、交叉轴(cross axis)、开始位置">
+  <meta name="description" content="弹性布局采用Flex 布局的元素，称为Flex 容器(flex container),简称”容器”。它的所有子元素自动成为容器成员，称为Flex 项目(flex item),简称”项目”。Flex定义的容器可以对块级元素(display: flex;)或行内元素(display: inline-flex;)生效。若父元素定义了Flex容器，则子元素的float、clear、vertical-al">
 <meta property="og:type" content="article">
 <meta property="og:title" content="学Flex有笔记（三）">
 <meta property="og:url" content="http://yoursite.com/2017/01/25/学Flex有笔记（三）/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="弹性布局Flex定义的容器可以对块级元素(display: flex;)或行内元素(display: inline-flex;)生效。若父元素定义了Flex容器，则子元素的float、clear、vertical-align属性将会失效。
-
-
-概念flex容器(flex container)、flex项目(flex item)、主轴(main axis)、交叉轴(cross axis)、开始位置">
+<meta property="og:description" content="弹性布局采用Flex 布局的元素，称为Flex 容器(flex container),简称”容器”。它的所有子元素自动成为容器成员，称为Flex 项目(flex item),简称”项目”。Flex定义的容器可以对块级元素(display: flex;)或行内元素(display: inline-flex;)生效。若父元素定义了Flex容器，则子元素的float、clear、vertical-al">
 <meta property="og:image" content="http://yoursite.com/images/Flex-images/idea.png">
-<meta property="og:updated_time" content="2018-04-10T11:44:10.406Z">
+<meta property="og:updated_time" content="2018-04-10T13:19:09.021Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学Flex有笔记（三）">
-<meta name="twitter:description" content="弹性布局Flex定义的容器可以对块级元素(display: flex;)或行内元素(display: inline-flex;)生效。若父元素定义了Flex容器，则子元素的float、clear、vertical-align属性将会失效。
-
-
-概念flex容器(flex container)、flex项目(flex item)、主轴(main axis)、交叉轴(cross axis)、开始位置">
+<meta name="twitter:description" content="弹性布局采用Flex 布局的元素，称为Flex 容器(flex container),简称”容器”。它的所有子元素自动成为容器成员，称为Flex 项目(flex item),简称”项目”。Flex定义的容器可以对块级元素(display: flex;)或行内元素(display: inline-flex;)生效。若父元素定义了Flex容器，则子元素的float、clear、vertical-al">
 <meta name="twitter:image" content="http://yoursite.com/images/Flex-images/idea.png">
 
   
@@ -148,7 +139,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#弹性布局"><span class="toc-text">弹性布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语法"><span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应式布局"><span class="toc-text">响应式布局</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#设置meta"><span class="toc-text">设置meta</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#媒体查询"><span class="toc-text">媒体查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#移动端兼容性问题"><span class="toc-text">移动端兼容性问题</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#弹性布局"><span class="toc-text">弹性布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#概念理解"><span class="toc-text">概念理解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#flex-shrink"><span class="toc-text">flex-shrink</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flex-basis"><span class="toc-text">flex-basis</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flex-grow"><span class="toc-text">flex-grow</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语法"><span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应式布局"><span class="toc-text">响应式布局</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#设置meta"><span class="toc-text">设置meta</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#媒体查询"><span class="toc-text">媒体查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#移动端兼容性问题"><span class="toc-text">移动端兼容性问题</span></a></li></ol></li></ol>
   </div>
 
 
@@ -195,16 +186,20 @@
   <div class="article-content">
     
       <ul>
-<li><h3 id="弹性布局"><a href="#弹性布局" class="headerlink" title="弹性布局"></a>弹性布局</h3>Flex定义的容器可以对块级元素(display: flex;)或行内元素(display: inline-flex;)生效。若父元素定义了Flex容器，则子元素的float、clear、vertical-align属性将会失效。</li>
+<li><h3 id="弹性布局"><a href="#弹性布局" class="headerlink" title="弹性布局"></a>弹性布局</h3>采用Flex 布局的元素，称为Flex 容器(flex container),简称”容器”。它的所有子元素自动成为容器成员，称为Flex 项目(flex item),简称”项目”。<br>Flex定义的容器可以对块级元素(display: flex;)或行内元素(display: inline-flex;)生效。若父元素定义了Flex容器，则子元素的float、clear、vertical-align属性将会失效。</li>
 </ul>
 <ul>
-<li><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3>flex容器(flex container)、flex项目(flex item)、主轴(main axis)、交叉轴(cross axis)、开始位置(start)、结束位置(end)</li>
+<li><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3>Flex属性分为两部分，一部分作用于容器称容器属性，另一部分作用于项目称为项目属性。<br>flex容器(flex container)、flex项目(flex item)、主轴(main axis)、交叉轴(cross axis)、开始位置(start)、结束位置(end)</li>
 </ul>
 <p><img src="/images/Flex-images/idea.png" width="100%" height="20%"></p>
 <ul>
-<li><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3></li>
+<li><h3 id="概念理解"><a href="#概念理解" class="headerlink" title="概念理解"></a>概念理解</h3></li>
 </ul>
 <ul>
+<li>flex: x x x = grow shrik basis<br>flex属性是flex-grow,flex -shrik和flex -basis: 的简写，默认值为01auto。后两个是可选属性。<h4 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h4>flex-shrink 属性定义了项目的缩小比例，默认为1,即如果空间不足，该项目将缩小。0表示不缩小，负值无效。<h4 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h4>flex-basis属性定义项目在分配额外空间之前的缺省尺寸。属性值可以是长度(20%,10rem等)或者关键字auto。它的默认值为auto,即项目的本来大小。<h4 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h4>flex-grow 属性定义项目的放大比例，flex-grow 值是一个单位的正整数，表示放大的比例。默认为0,即如果存在额外空间，也不放大，负值无效。如果所有项目的flex-grow属性都为1,则它们将等分剩余空间(如果有的话)。如果一个项目的flex-grow属性为2,其他项目都为1,则前者占据的剩余空间将比其他项多一倍。</li>
+</ul>
+<ul>
+<li><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><ul>
 <li>justify-content、align-content改变项目的主轴或交叉轴的位置。</li>
 <li>align-items、align-self改变一行项目或单个项目在交叉轴的对齐方式。</li>
 <li>flex-basis、flex-grow和flex-shrink改变项目的尺寸。</li>
@@ -212,13 +207,16 @@
 <li>flex-direction改变项目组的方向，flex-wrap定义是否换行。</li>
 <li>响应式媒体查询可以设定条件样式。</li>
 </ul>
+</li>
+</ul>
 <ul>
 <li><h3 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h3></li>
 </ul>
 <h4 id="设置meta"><a href="#设置meta" class="headerlink" title="设置meta"></a>设置meta</h4><p>布局宽度=设备宽度，布局viewport=度量viewport<br><code>&lt;meta name=&#39;viewport&#39; content=&#39;width=device-width，initial-scale=1&#39;&gt;</code></p>
 <h4 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h4><ul>
 <li>样式的媒体查询<br><code>@media screen and (max-width:1024px){....}</code></li>
-<li><p>css文件的媒体查询<br><code>&lt;link rel=&#39;stylesheet&#39; media=&#39;screen and (max-width:1024px)&#39; href=&#39;style.css&#39; /&gt;</code></p>
+<li>css文件的媒体查询<br><code>&lt;link rel=&#39;stylesheet&#39; media=&#39;screen and (max-width:1024px)&#39; href=&#39;style.css&#39; /&gt;</code></li>
+</ul>
 <h4 id="移动端兼容性问题"><a href="#移动端兼容性问题" class="headerlink" title="移动端兼容性问题"></a>移动端兼容性问题</h4><ul>
 <li><p><a href="https://github.com/sindresorhus/gulp-autoprefixer" target="_blank" rel="external">自动化工具gulp-autoprefixer</a></p>
 </li>
@@ -227,8 +225,6 @@
 </li>
 <li><p>css文件</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;</div><div class="line">  <span class="attribute">align-items</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
 </li>
 </ul>
 <ul>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Linux的shh登录 | 博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Linux," />
+  
+
+  <meta name="description" content="两种本地ssh的登录
+前提是你已经在云主机上的~目录下的.ssh/authorized_keys写入了本地密钥对的公钥id_rsa_2048.pub。没有密钥对的话，要先用ssh-keygen生成密钥对
+
+
+方式一：这种方式是每次终端重启都要输入以下两条命令的，但是第二种方式配置完，以后只需要ssh tgq就行了。在终端下输入以下命令：
+12$   eval `ssh-agent -s`$   s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux的shh登录">
+<meta property="og:url" content="http://yoursite.com/2016/05/05/Linux的ssh登录/index.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="两种本地ssh的登录
+前提是你已经在云主机上的~目录下的.ssh/authorized_keys写入了本地密钥对的公钥id_rsa_2048.pub。没有密钥对的话，要先用ssh-keygen生成密钥对
+
+
+方式一：这种方式是每次终端重启都要输入以下两条命令的，但是第二种方式配置完，以后只需要ssh tgq就行了。在终端下输入以下命令：
+12$   eval `ssh-agent -s`$   s">
+<meta property="og:image" content="http://yoursite.com/images/Linux-images/ssh01.png">
+<meta property="og:image" content="http://yoursite.com/images/Linux-images/ssh02.png">
+<meta property="og:image" content="http://yoursite.com/images/Linux-images/ls-al.png">
+<meta property="og:updated_time" content="2018-04-10T14:28:15.457Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux的shh登录">
+<meta name="twitter:description" content="两种本地ssh的登录
+前提是你已经在云主机上的~目录下的.ssh/authorized_keys写入了本地密钥对的公钥id_rsa_2048.pub。没有密钥对的话，要先用ssh-keygen生成密钥对
+
+
+方式一：这种方式是每次终端重启都要输入以下两条命令的，但是第二种方式配置完，以后只需要ssh tgq就行了。在终端下输入以下命令：
+12$   eval `ssh-agent -s`$   s">
+<meta name="twitter:image" content="http://yoursite.com/images/Linux-images/ssh01.png">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#两种本地ssh的登录"><span class="toc-text">两种本地ssh的登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方式一："><span class="toc-text">方式一：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方式二："><span class="toc-text">方式二：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#密钥目录下的config配置文件"><span class="toc-text">密钥目录下的config配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#全局登录配置"><span class="toc-text">全局登录配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置后的登录"><span class="toc-text">配置后的登录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#顺带提一下："><span class="toc-text">顺带提一下：</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-Linux的ssh登录" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Linux的shh登录</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.05.05</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>啊其</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+        <i class="icon-comment"></i> 
+        <span class="ds-thread-count" data-thread-key="post-Linux的ssh登录"><i class="fa fa-spinner fa-spin"></i></span> 条评论
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h3 id="两种本地ssh的登录"><a href="#两种本地ssh的登录" class="headerlink" title="两种本地ssh的登录"></a>两种本地ssh的登录</h3><ul>
+<li>前提是你已经在云主机上的~目录下的.ssh/authorized_keys写入了本地密钥对的公钥id_rsa_2048.pub。<code>没有密钥对的话，要先用ssh-keygen生成密钥对</code></li>
+</ul>
+<ul>
+<li><h3 id="方式一："><a href="#方式一：" class="headerlink" title="方式一："></a>方式一：</h3><p>这种方式是每次终端重启都要输入以下两条命令的，但是第二种方式配置完，以后只需要ssh tgq就行了。<br>在终端下输入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$   eval `ssh-agent -s`</div><div class="line">$   ssh-add C:\Users\TGQ\.ssh\id_rsa_2048</div></pre></td></tr></table></figure>
+<p>然后连接到云主机:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$   ssh tgq@&quot;云主机公网IP&quot;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/images/Linux-images/ssh01.png" width="100%" height="20%"></p>
+<ul>
+<li><h3 id="方式二："><a href="#方式二：" class="headerlink" title="方式二："></a>方式二：</h3></li>
+</ul>
+<h4 id="密钥目录下的config配置文件"><a href="#密钥目录下的config配置文件" class="headerlink" title="密钥目录下的config配置文件"></a>密钥目录下的config配置文件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">编辑config文件，使得在客户端上面的ssh免密钥登录可以用ssh tgq的命令一键登陆</div><div class="line">现在，在C:\Users\TGQ\.ssh目录下，右键git bash然后vi config。在里面添加</div><div class="line">Host tgq</div><div class="line">    HostName <span class="string">"云主机公网IP"</span></div><div class="line">        User tgq</div><div class="line">            IdentityFile id_rsa_2048</div><div class="line">然后shift + : +w +q! 保存退出后</div></pre></td></tr></table></figure>
+<h4 id="全局登录配置"><a href="#全局登录配置" class="headerlink" title="全局登录配置"></a>全局登录配置</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">只要改一下全局路径就行：</div><div class="line">IdentityFile id_rsa_2048</div><div class="line">---&gt; </div><div class="line">IdentityFile C:\Users\TGQ\.ssh\id_rsa_2048</div></pre></td></tr></table></figure>
+<h4 id="配置后的登录"><a href="#配置后的登录" class="headerlink" title="配置后的登录"></a>配置后的登录</h4><p>在任意地方下的终端输入以下命令，即可连接云主机<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh tgq</div></pre></td></tr></table></figure></p>
+<p><img src="/images/Linux-images/ssh02.png" width="100%" height="20%"></p>
+<h3 id="顺带提一下："><a href="#顺带提一下：" class="headerlink" title="顺带提一下："></a>顺带提一下：</h3><p>检查SSH密钥是否存在，输入以下命令：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls -al ~<span class="regexp">/.ssh</span></div></pre></td></tr></table></figure></p>
+<p><img src="/images/Linux-images/ls-al.png" width="100%" height="20%"></p>
+<p>本地git用户名和邮箱地址的作用</p>
+<ul>
+<li>用户名和邮箱地址是本地git客户端的一个变量，不随git库而改变。</li>
+<li>每次commit都会用用户名和邮箱纪录。</li>
+<li>github的contributions统计就是按邮箱来统计的</li>
+</ul>
+<p>查看用户名和邮箱地址<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config user.name</div><div class="line">$ git config user.email</div></pre></td></tr></table></figure></p>
+<p>修改用户名和邮箱地址：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name <span class="string">"username"</span></div><div class="line">$ git config --global user.email <span class="string">"email"</span></div></pre></td></tr></table></figure></p>
+<p><code>还是想强调一下，此博客是自己平时学习或者踩坑的一些总结，也不是说没总结的就是没学的，只是把坑写一写而已，不作为能为大多数人所解决问题的教程，同时，我有时忘了其中的一些知识点也会翻来看一下，但并不是大街上教人的教程，并不是说轮子有了还要造什么的，并不是说这些总结烂大街之类的还要总结，这个博客只为我自己一人定制，所以并不适合所有人，望见谅。如果其中的一些总结能给你带来些许思路，或许也是件如1024KB = 1M般的舒服。</code></p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持啊其</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/wechat-reward-image.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/alipay-reward-image.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/04/11/JS深入浅出小结（五）/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/01/23/学Flex有笔记（一）/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+  <section class="duoshuo-comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-Linux的ssh登录" 
+      data-title="Linux的shh登录" data-url="http://yoursite.com/2016/05/05/Linux的ssh登录/index.html"></div>
+    <!-- 多说评论框 end -->
+  </section>
+
+
+
+
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:"blog-commit"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
