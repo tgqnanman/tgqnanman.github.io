@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>学Flex有笔记（一） | 博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="学xx有笔记," />
+  
+
+  <meta name="description" content="Flex的layout布局布局的传统解决方案，基于盒状模型，依赖 display 属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现.
+
+
+笔记参考1
+笔记参考2  
+笔记参考3 
+
+
+【笔记一之Flex Container】123 ul&amp;#123;    display: flex;&amp;#125;
+
+
+
+ 1234 ul&amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学Flex有笔记（一）">
+<meta property="og:url" content="http://yoursite.com/2017/01/23/学Flex有笔记（一）/index.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="Flex的layout布局布局的传统解决方案，基于盒状模型，依赖 display 属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现.
+
+
+笔记参考1
+笔记参考2  
+笔记参考3 
+
+
+【笔记一之Flex Container】123 ul&amp;#123;    display: flex;&amp;#125;
+
+
+
+ 1234 ul&amp;#123;">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/01_lim[limit].png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/02_lim[limit].png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/03_lim[limit].png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/05_lim[limit].png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/06_lim[limit].png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/07_lim[limit].png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/08_lim[limit].png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/09_lim[limit].png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/10_lim[limit].png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/11_lim[limit].png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/12_lim[limit].png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/13_lim[limit].png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/14.png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/15.png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/16.png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/17.png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/18.png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/19.png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/20.png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/21.png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/22.png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/23.png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/24.png">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/25.png">
+<meta property="og:updated_time" content="2018-04-10T11:15:51.994Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="学Flex有笔记（一）">
+<meta name="twitter:description" content="Flex的layout布局布局的传统解决方案，基于盒状模型，依赖 display 属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现.
+
+
+笔记参考1
+笔记参考2  
+笔记参考3 
+
+
+【笔记一之Flex Container】123 ul&amp;#123;    display: flex;&amp;#125;
+
+
+
+ 1234 ul&amp;#123;">
+<meta name="twitter:image" content="http://yoursite.com/images/Flex-images/01_lim[limit].png">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Flex的layout布局"><span class="toc-text">Flex的layout布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#【笔记一之Flex-Container】"><span class="toc-text">【笔记一之Flex Container】</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#【笔记二之Flex-items】"><span class="toc-text">【笔记二之Flex items】</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#【笔记三之Absolute-and-Relative-flex-items】"><span class="toc-text">【笔记三之Absolute and Relative flex-items】</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#【笔记四之Auto-margin-Alignment】"><span class="toc-text">【笔记四之Auto-margin Alignment】</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#【笔记五之flex-direction】"><span class="toc-text">【笔记五之flex-direction】</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-学Flex有笔记（一）" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">学Flex有笔记（一）</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.01.23</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>啊其</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+        <i class="icon-comment"></i> 
+        <span class="ds-thread-count" data-thread-key="post-学Flex有笔记（一）"><i class="fa fa-spinner fa-spin"></i></span> 条评论
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <ul>
+<li><h3 id="Flex的layout布局"><a href="#Flex的layout布局" class="headerlink" title="Flex的layout布局"></a>Flex的layout布局</h3>布局的传统解决方案，基于盒状模型，依赖 display 属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现.</li>
+</ul>
+<ul>
+<li><a href="https://www.educative.io/collection/page/5191711974227968/5741031244955648/5744505470844928" target="_blank" rel="external">笔记参考1</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">笔记参考2</a>  </li>
+<li><a href="https://hufan-akari.github.io/solved-by-flexbox/" target="_blank" rel="external">笔记参考3</a> </li>
+</ul>
+<ul>
+<li><h3 id="【笔记一之Flex-Container】"><a href="#【笔记一之Flex-Container】" class="headerlink" title="【笔记一之Flex Container】"></a>【笔记一之Flex Container】</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> <span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/images/Flex-images/01_lim[limit].png" width="100%" height="20%"><br><img src="/images/Flex-images/02_lim[limit].png" width="100%" height="20%"></p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> <span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">flex-wrap</span>: wrap;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/images/Flex-images/03_lim[limit].png" width="100%" height="20%"></p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> <span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">justify-content</span>: flex-end;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/images/Flex-images/05_lim[limit].png" width="100%" height="20%"></p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> <span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">justify-content</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/images/Flex-images/06_lim[limit].png" width="100%" height="20%"></p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> <span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">justify-content</span>:space-between;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/images/Flex-images/07_lim[limit].png" width="100%" height="20%"></p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> <span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">justify-content</span>: space-around;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/images/Flex-images/08_lim[limit].png" width="100%" height="20%"></p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">justify-content</span>: space-between;</div><div class="line">    <span class="comment">/* the flex-items fill the entire height of the container */</span></div><div class="line">    <span class="attribute">align-items</span>: stretch;</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:not(</span><span class="selector-pseudo">:first-child)</span>&#123;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">2rem</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/images/Flex-images/09_lim[limit].png" width="100%" height="20%"></p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">justify-content</span>: space-between;</div><div class="line">    <span class="comment">/* flex-items to the start of the cross-axis */</span></div><div class="line">    <span class="attribute">align-items</span>: flex-start;</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:not(</span><span class="selector-pseudo">:first-child)</span>&#123;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">2rem</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/images/Flex-images/10_lim[limit].png" width="100%" height="20%"></p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">justify-content</span>: space-between;</div><div class="line">    <span class="comment">/* flex-items to the end of the cross-axis */</span></div><div class="line">    <span class="attribute">align-items</span>: flex-end;</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:not(</span><span class="selector-pseudo">:first-child)</span>&#123;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">2rem</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/images/Flex-images/11_lim[limit].png" width="100%" height="20%"></p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">justify-content</span>: space-between;</div><div class="line">    <span class="comment">/* flex-items to the center of the cross-axis */</span></div><div class="line">    <span class="attribute">align-items</span>: center;</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:not(</span><span class="selector-pseudo">:first-child)</span>&#123;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">2rem</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/images/Flex-images/12_lim[limit].png" width="100%" height="20%"></p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">justify-content</span>: space-between;</div><div class="line">    <span class="comment">/* it aligns flex-items along their baselines*/</span></div><div class="line">    <span class="attribute">align-items</span>: baseline;</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:not(</span><span class="selector-pseudo">:first-child)</span>&#123;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">2rem</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/images/Flex-images/13_lim[limit].png" width="100%" height="20%"></p>
+<ul>
+<li><h3 id="【笔记二之Flex-items】"><a href="#【笔记二之Flex-items】" class="headerlink" title="【笔记二之Flex items】"></a>【笔记二之Flex items】</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="selector-tag">li</span>&#123;</div><div class="line">    <span class="attribute">flex-grow</span>:<span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/images/Flex-images/14.png" width="100%" height="20%"></p>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="selector-tag">li</span>&#123;</div><div class="line">    <span class="attribute">flex-basis</span>: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/images/Flex-images/15.png" width="100%" height="20%"></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">flex</span>: <span class="selector-tag">x</span> <span class="selector-tag">x</span> <span class="selector-tag">x</span>;</div></pre></td></tr></table></figure>
+<p><img src="/images/Flex-images/16.png" width="100%" height="20%"></p>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="selector-tag">li</span>&#123;</div><div class="line">    <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">1</span> auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/images/Flex-images/17.png" width="100%" height="20%"></p>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">justify-content</span>: space-between;</div><div class="line">    <span class="attribute">align-items</span>: flex-start;</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:first-child</span>&#123;</div><div class="line">    <span class="attribute">align-self</span>: flex-end;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/images/Flex-images/18.png" width="100%" height="20%"></p>
+<ul>
+<li><h3 id="【笔记三之Absolute-and-Relative-flex-items】"><a href="#【笔记三之Absolute-and-Relative-flex-items】" class="headerlink" title="【笔记三之Absolute and Relative flex-items】"></a>【笔记三之Absolute and Relative flex-items】</h3></li>
+</ul>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="selector-tag">li</span>&#123;</div><div class="line">    <span class="comment">/* flex: auto  ===  flex: 1 1 auto;*/</span></div><div class="line"> <span class="comment">/* flex: 1 1 auto is the same as setting: flex-grow: 1 flex-shrink: 1 and flex-basis: auto */</span></div><div class="line">    <span class="attribute">flex</span>: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/images/Flex-images/19.png" width="100%" height="20%"></p>
+<ul>
+<li><h3 id="【笔记四之Auto-margin-Alignment】"><a href="#【笔记四之Auto-margin-Alignment】" class="headerlink" title="【笔记四之Auto-margin Alignment】"></a>【笔记四之Auto-margin Alignment】</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="selector-tag">li</span>&#123;</div><div class="line">    <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/images/Flex-images/20.png" width="100%" height="20%"></p>
+   <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">&#125; </div><div class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(1)</span>&#123;</div><div class="line">    <span class="attribute">margin-right</span>: auto;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">li</span>&#123;</div><div class="line">    <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/images/Flex-images/21.png" width="100%" height="20%"></p>
+   <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">&#125; </div><div class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(1)</span>&#123;</div><div class="line">    <span class="attribute">margin-right</span>: auto;</div><div class="line">    <span class="attribute">margin-left</span>: auto;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">li</span>&#123;</div><div class="line">    <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/images/Flex-images/22.png" width="100%" height="20%"></p>
+<ul>
+<li><h3 id="【笔记五之flex-direction】"><a href="#【笔记五之flex-direction】" class="headerlink" title="【笔记五之flex-direction】"></a>【笔记五之flex-direction】</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">flex-direction</span>: column;</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="selector-tag">li</span>&#123;</div><div class="line">    <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/images/Flex-images/23.png" width="100%" height="20%"></p>
+   <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">flex-direction</span>: column;</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="selector-tag">li</span>&#123;</div><div class="line">    <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> auto;</div><div class="line">    <span class="comment">/*100px fill the continer */</span></div><div class="line">    <span class="attribute">flex-basis</span>: <span class="number">100px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/images/Flex-images/24.png" width="100%" height="20%"></p>
+   <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ul</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">align-items</span>: center;</div><div class="line">    <span class="attribute">flex-direction</span>: column;</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="selector-tag">li</span>&#123;</div><div class="line">    <span class="comment">/* flex: 0 0 auto; */</span></div><div class="line">    <span class="comment">/*100px fill the continer */</span></div><div class="line">    <span class="attribute">flex-basis</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/images/Flex-images/25.png" width="100%" height="20%"></p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持啊其</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/wechat-reward-image.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/alipay-reward-image.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/04/11/JS深入浅出小结（五）/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/01/24/学Flex有笔记（二）/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+  <section class="duoshuo-comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-学Flex有笔记（一）" 
+      data-title="学Flex有笔记（一）" data-url="http://yoursite.com/2017/01/23/学Flex有笔记（一）/index.html"></div>
+    <!-- 多说评论框 end -->
+  </section>
+
+
+
+
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:"blog-commit"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

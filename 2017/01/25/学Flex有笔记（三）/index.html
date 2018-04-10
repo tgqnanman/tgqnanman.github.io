@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>学Flex有笔记（三） | 博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="学xx有笔记," />
+  
+
+  <meta name="description" content="弹性布局Flex定义的容器可以对块级元素(display: flex;)或行内元素(display: inline-flex;)生效。若父元素定义了Flex容器，则子元素的float、clear、vertical-align属性将会失效。
+
+
+概念flex容器(flex container)、flex项目(flex item)、主轴(main axis)、交叉轴(cross axis)、开始位置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学Flex有笔记（三）">
+<meta property="og:url" content="http://yoursite.com/2017/01/25/学Flex有笔记（三）/index.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="弹性布局Flex定义的容器可以对块级元素(display: flex;)或行内元素(display: inline-flex;)生效。若父元素定义了Flex容器，则子元素的float、clear、vertical-align属性将会失效。
+
+
+概念flex容器(flex container)、flex项目(flex item)、主轴(main axis)、交叉轴(cross axis)、开始位置">
+<meta property="og:image" content="http://yoursite.com/images/Flex-images/idea.png">
+<meta property="og:updated_time" content="2018-04-10T11:44:10.406Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="学Flex有笔记（三）">
+<meta name="twitter:description" content="弹性布局Flex定义的容器可以对块级元素(display: flex;)或行内元素(display: inline-flex;)生效。若父元素定义了Flex容器，则子元素的float、clear、vertical-align属性将会失效。
+
+
+概念flex容器(flex container)、flex项目(flex item)、主轴(main axis)、交叉轴(cross axis)、开始位置">
+<meta name="twitter:image" content="http://yoursite.com/images/Flex-images/idea.png">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#弹性布局"><span class="toc-text">弹性布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语法"><span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应式布局"><span class="toc-text">响应式布局</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#设置meta"><span class="toc-text">设置meta</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#媒体查询"><span class="toc-text">媒体查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#移动端兼容性问题"><span class="toc-text">移动端兼容性问题</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-学Flex有笔记（三）" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">学Flex有笔记（三）</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.01.25</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>啊其</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+        <i class="icon-comment"></i> 
+        <span class="ds-thread-count" data-thread-key="post-学Flex有笔记（三）"><i class="fa fa-spinner fa-spin"></i></span> 条评论
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <ul>
+<li><h3 id="弹性布局"><a href="#弹性布局" class="headerlink" title="弹性布局"></a>弹性布局</h3>Flex定义的容器可以对块级元素(display: flex;)或行内元素(display: inline-flex;)生效。若父元素定义了Flex容器，则子元素的float、clear、vertical-align属性将会失效。</li>
+</ul>
+<ul>
+<li><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3>flex容器(flex container)、flex项目(flex item)、主轴(main axis)、交叉轴(cross axis)、开始位置(start)、结束位置(end)</li>
+</ul>
+<p><img src="/images/Flex-images/idea.png" width="100%" height="20%"></p>
+<ul>
+<li><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3></li>
+</ul>
+<ul>
+<li>justify-content、align-content改变项目的主轴或交叉轴的位置。</li>
+<li>align-items、align-self改变一行项目或单个项目在交叉轴的对齐方式。</li>
+<li>flex-basis、flex-grow和flex-shrink改变项目的尺寸。</li>
+<li>order改变项目的排序。</li>
+<li>flex-direction改变项目组的方向，flex-wrap定义是否换行。</li>
+<li>响应式媒体查询可以设定条件样式。</li>
+</ul>
+<ul>
+<li><h3 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h3></li>
+</ul>
+<h4 id="设置meta"><a href="#设置meta" class="headerlink" title="设置meta"></a>设置meta</h4><p>布局宽度=设备宽度，布局viewport=度量viewport<br><code>&lt;meta name=&#39;viewport&#39; content=&#39;width=device-width，initial-scale=1&#39;&gt;</code></p>
+<h4 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h4><ul>
+<li>样式的媒体查询<br><code>@media screen and (max-width:1024px){....}</code></li>
+<li><p>css文件的媒体查询<br><code>&lt;link rel=&#39;stylesheet&#39; media=&#39;screen and (max-width:1024px)&#39; href=&#39;style.css&#39; /&gt;</code></p>
+<h4 id="移动端兼容性问题"><a href="#移动端兼容性问题" class="headerlink" title="移动端兼容性问题"></a>移动端兼容性问题</h4><ul>
+<li><p><a href="https://github.com/sindresorhus/gulp-autoprefixer" target="_blank" rel="external">自动化工具gulp-autoprefixer</a></p>
+</li>
+<li><p>配置参数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> &#123;</div><div class="line">  <span class="attr">browsers</span>: [</div><div class="line">    <span class="string">'last 2 versions'</span>,</div><div class="line">    <span class="string">'iOS &gt;= 7'</span>,</div><div class="line">    <span class="string">'Android &gt;= 4'</span>],</div><div class="line">  <span class="attr">cascade</span>: <span class="literal">false</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>css文件</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;</div><div class="line">  <span class="attribute">align-items</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>自动化工具后的css<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attribute">display</span>: -webkit-box;</div><div class="line">    <span class="attribute">display</span>: -webkit-flex;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">-webkit-box-flex</span>: <span class="number">1</span>;</div><div class="line">    <span class="attribute">-webkit-flex</span>: <span class="number">1</span>;</div><div class="line">    <span class="attribute">flex</span>: <span class="number">1</span>;</div><div class="line">    <span class="attribute">-webkit-box-align</span>: center;</div><div class="line">    <span class="attribute">-webkit-align-items</span>: center;</div><div class="line">    <span class="attribute">align-items</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+</ul>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持啊其</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/wechat-reward-image.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/alipay-reward-image.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/01/24/学Flex有笔记（二）/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2018/03/28/Mysql的学习（一）/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+  <section class="duoshuo-comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-学Flex有笔记（三）" 
+      data-title="学Flex有笔记（三）" data-url="http://yoursite.com/2017/01/25/学Flex有笔记（三）/index.html"></div>
+    <!-- 多说评论框 end -->
+  </section>
+
+
+
+
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:"blog-commit"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
