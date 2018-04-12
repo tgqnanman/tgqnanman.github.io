@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Nginx静态文件的配置 | 博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Nginx," />
+  
+
+  <meta name="description" content="安装Nginx系纺是Ubuntu Server 14.04.1 LTS 64位1sudo apt-get install nginx
+
+配置.conf新建.conf配置文件123cd /      // 进入根目录cd etc/nginx/conf.d     //进入nginx配置文件夹sudo vi test.conf    //新建test.conf配置文件
+
+PS-1：不同系统nginx.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx静态文件的配置">
+<meta property="og:url" content="http://yoursite.com/2018/03/28/Nginx静态文件的配置/index.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="安装Nginx系纺是Ubuntu Server 14.04.1 LTS 64位1sudo apt-get install nginx
+
+配置.conf新建.conf配置文件123cd /      // 进入根目录cd etc/nginx/conf.d     //进入nginx配置文件夹sudo vi test.conf    //新建test.conf配置文件
+
+PS-1：不同系统nginx.">
+<meta property="og:image" content="http://yoursite.com/images/Nginx-images/installNginx.png">
+<meta property="og:image" content="http://yoursite.com/images/Nginx-images/yidunluanqiao.png">
+<meta property="og:image" content="http://yoursite.com/images/Nginx-images/includenginxConf.png">
+<meta property="og:image" content="http://yoursite.com/images/Nginx-images/testconfDetail.png">
+<meta property="og:image" content="http://yoursite.com/images/Nginx-images/defaultIndex.png">
+<meta property="og:image" content="http://yoursite.com/images/Nginx-images/installNginx.png">
+<meta property="og:updated_time" content="2018-04-12T14:10:38.260Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nginx静态文件的配置">
+<meta name="twitter:description" content="安装Nginx系纺是Ubuntu Server 14.04.1 LTS 64位1sudo apt-get install nginx
+
+配置.conf新建.conf配置文件123cd /      // 进入根目录cd etc/nginx/conf.d     //进入nginx配置文件夹sudo vi test.conf    //新建test.conf配置文件
+
+PS-1：不同系统nginx.">
+<meta name="twitter:image" content="http://yoursite.com/images/Nginx-images/installNginx.png">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Nginx"><span class="toc-text">安装Nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置-conf"><span class="toc-text">配置.conf</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#新建-conf配置文件"><span class="toc-text">新建.conf配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写入配置信息"><span class="toc-text">写入配置信息</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Server配置区块"><span class="toc-text">Server配置区块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#listen指令"><span class="toc-text">listen指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#server-name指令"><span class="toc-text">server_name指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#root指令"><span class="toc-text">root指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#index指令"><span class="toc-text">index指令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#index-html"><span class="toc-text">index.html</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-Nginx静态文件的配置" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Nginx静态文件的配置</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.03.28</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>啊其</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+        <i class="icon-comment"></i> 
+        <span class="ds-thread-count" data-thread-key="post-Nginx静态文件的配置"><i class="fa fa-spinner fa-spin"></i></span> 条评论
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a><strong>安装Nginx</strong></h2><p><code>系纺是Ubuntu Server 14.04.1 LTS 64位</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install nginx</div></pre></td></tr></table></figure></p>
+<p><img src="/images/Nginx-images/installNginx.png" width="60%" height="20%"></p>
+<h2 id="配置-conf"><a href="#配置-conf" class="headerlink" title="配置.conf"></a><strong>配置.conf</strong></h2><h3 id="新建-conf配置文件"><a href="#新建-conf配置文件" class="headerlink" title="新建.conf配置文件"></a><strong>新建.conf配置文件</strong></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd /      <span class="comment">// 进入根目录</span></div><div class="line">cd etc/nginx/conf.d     <span class="comment">//进入nginx配置文件夹</span></div><div class="line">sudo vi test.conf    <span class="comment">//新建test.conf配置文件</span></div></pre></td></tr></table></figure>
+<p><img src="/images/Nginx-images/yidunluanqiao.png" width="60%" height="20%"></p>
+<p>PS-1：不同系统nginx.conf配置文件路径不一样，用以下命令查找<br><code>find / -name nginx.conf</code><br>PS-2：sudo是以root的权限进行修改（此时在tgq子用户下，当然一开始可以直接<code>sudo su</code>切换到root权限下操作，想换回tgq子用户就<code>su tgq</code>）<br>PS-3：这里新建的配置文件能够生效是因为在<code>etc/nginx/nginx.conf</code>下include了<code>conf.d</code>文件夹里面的所有后缀名为.conf文件<br><img src="/images/Nginx-images/includenginxConf.png" width="50%" height="20%"></p>
+<h3 id="写入配置信息"><a href="#写入配置信息" class="headerlink" title="写入配置信息"></a><strong>写入配置信息</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">sudo vi test.conf  </div><div class="line">  </div><div class="line">i</div><div class="line">  </div><div class="line">server &#123;</div><div class="line">        listen <span class="number">80</span>;</div><div class="line">        server_name test.tgqnanman.com;</div><div class="line">        root /etc/nginx/test;</div><div class="line">        location / &#123;</div><div class="line">            root   /etc/nginx/test;</div><div class="line">            index  index.html index.htm;</div><div class="line">        &#125;</div><div class="line">&#125;  </div><div class="line">  </div><div class="line">:wq!</div><div class="line"></div><div class="line">sudo nginx -s reload <span class="comment">//这里需要重启一下nginx的服务</span></div></pre></td></tr></table></figure>
+<p><img src="/images/Nginx-images/testconfDetail.png" width="70%" height="20%"></p>
+<h4 id="Server配置区块"><a href="#Server配置区块" class="headerlink" title="Server配置区块"></a><strong>Server配置区块</strong></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>如果你想在一台服务器上运行多个网站的话， 你应该会用到这种配置区块。一般每个 server 区块的配置都可以单独放到一个文件里。比如一个<code>test.conf</code>配置文件里可以有多个server配置区块来创建不同的域名配置。</li>
+</ol>
+<h4 id="listen指令"><a href="#listen指令" class="headerlink" title="listen指令"></a><strong>listen指令</strong></h4><p><code>listen 80</code>：</p>
+<ol>
+<li>listen 指令可以设置服务器监听的端口号、IP 地址或者主机名。这里监听了 80 端口，这是 http 协议默认的端口号。</li>
+<li>在监听的端口前面可以加上 IP 地址或许本地的主机名，比如：127.0.0.1:80 ，localhost:80，云主机公网IP:80。</li>
+</ol>
+<h4 id="server-name指令"><a href="#server-name指令" class="headerlink" title="server_name指令"></a><strong>server_name指令</strong></h4><p><code>server_name test.tgqnanman.com</code>：<br>这个指令可以创建基于主机名的虚拟主机。比如上面的子域名例子，还有<code>www.tgqnanman.com</code>等等</p>
+<h4 id="root指令"><a href="#root指令" class="headerlink" title="root指令"></a><strong>root指令</strong></h4><p>root指令配置了这个虚拟主机的根目录。之前安装好 nginx，在浏览器里打开服务器的 IP 地址，看到的测试页面，就在这个目录的下面。  (注意：在centos系统安装的nginx欢迎页面在这个文件夹里<code>/usr/share/nginx/html</code>)。<br><img src="/images/Nginx-images/defaultIndex.png" width="70%" height="20%"></p>
+<h4 id="index指令"><a href="#index指令" class="headerlink" title="index指令"></a><strong>index指令</strong></h4><p><code>index index.html index.htm</code>：<br>index 指令设置了当请求的地址里不包含特定的文件的时候，默认打开的文件。这里设置成了 index.html index.htm ， 如果目录下面有 index.html 就打开它，如果没有就去找 index.htm。</p>
+<h3 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a><strong>index.html</strong></h3><p>因为上面的root指令配置了<code>root   /etc/nginx/test</code>，就是说会去找test文件夹里面的index.html<br>所以，这里我们需要在/etc/nginx目录下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir test</div><div class="line">mkdir index.html</div><div class="line">echo <span class="string">'Hello,the static html nginx!!!'</span> &gt;&gt; index.html</div></pre></td></tr></table></figure></p>
+<p>然后在浏览器里输入<code>test.tgqnanman.com</code>即可访问（<a href="https://tgqnanman.com/2016/06/06/解析二级域名/" target="_blank" rel="external">解析二级域名</a>）<br><img src="/images/Nginx-images/installNginx.png" width="70%" height="20%"></p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持啊其</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/wechat-reward-image.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/alipay-reward-image.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2018/01/25/排序算法几则/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2018/03/28/Mysql的学习（一）/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+  <section class="duoshuo-comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-Nginx静态文件的配置" 
+      data-title="Nginx静态文件的配置" data-url="http://yoursite.com/2018/03/28/Nginx静态文件的配置/index.html"></div>
+    <!-- 多说评论框 end -->
+  </section>
+
+
+
+
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:"blog-commit"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>排序算法几则 | 博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="算法," />
+  
+
+  <meta name="description" content="【冒泡排序】方法
+先将最大值冒泡到最后的位置（或将最小值冒泡到最前的位置）。
+越往后遍历查询次数越少。
+
+
+算法思路12345遍历数组。做第二层遍历，从前到后依次对比相邻两项，前一项的值大于后一项，则交换（冒泡）。第一遍冒泡，将最大的元素值冒泡至最后。  由于每一遍冒泡都确定一个当前最大值并放到当前范围的最后的位置，每一遍的冒泡就可以少检查一个位置。可以使用一个变量记录当前一遍的冒泡有没有产生元素">
+<meta property="og:type" content="article">
+<meta property="og:title" content="排序算法几则">
+<meta property="og:url" content="http://yoursite.com/2018/01/25/排序算法几则/index.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="【冒泡排序】方法
+先将最大值冒泡到最后的位置（或将最小值冒泡到最前的位置）。
+越往后遍历查询次数越少。
+
+
+算法思路12345遍历数组。做第二层遍历，从前到后依次对比相邻两项，前一项的值大于后一项，则交换（冒泡）。第一遍冒泡，将最大的元素值冒泡至最后。  由于每一遍冒泡都确定一个当前最大值并放到当前范围的最后的位置，每一遍的冒泡就可以少检查一个位置。可以使用一个变量记录当前一遍的冒泡有没有产生元素">
+<meta property="og:image" content="http://yoursite.com/images/Algorithm-images/bubbleSort.png">
+<meta property="og:image" content="http://yoursite.com/images/Algorithm-images/bubbleSort02.png">
+<meta property="og:image" content="http://yoursite.com/images/Algorithm-images/selectionSort.png">
+<meta property="og:image" content="http://yoursite.com/images/Algorithm-images/selectionSort02.png">
+<meta property="og:updated_time" content="2018-04-12T02:41:33.609Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="排序算法几则">
+<meta name="twitter:description" content="【冒泡排序】方法
+先将最大值冒泡到最后的位置（或将最小值冒泡到最前的位置）。
+越往后遍历查询次数越少。
+
+
+算法思路12345遍历数组。做第二层遍历，从前到后依次对比相邻两项，前一项的值大于后一项，则交换（冒泡）。第一遍冒泡，将最大的元素值冒泡至最后。  由于每一遍冒泡都确定一个当前最大值并放到当前范围的最后的位置，每一遍的冒泡就可以少检查一个位置。可以使用一个变量记录当前一遍的冒泡有没有产生元素">
+<meta name="twitter:image" content="http://yoursite.com/images/Algorithm-images/bubbleSort.png">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#【冒泡排序】"><span class="toc-text">【冒泡排序】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法"><span class="toc-text">方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法思路"><span class="toc-text">算法思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#【选择排序】"><span class="toc-text">【选择排序】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法-1"><span class="toc-text">方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法思路-1"><span class="toc-text">算法思路</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-排序算法几则" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">排序算法几则</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.01.25</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>啊其</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+        <i class="icon-comment"></i> 
+        <span class="ds-thread-count" data-thread-key="post-排序算法几则"><i class="fa fa-spinner fa-spin"></i></span> 条评论
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="【冒泡排序】"><a href="#【冒泡排序】" class="headerlink" title="【冒泡排序】"></a>【冒泡排序】</h2><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>先将最大值冒泡到最后的位置（或将最小值冒泡到最前的位置）。</li>
+<li>越往后遍历查询次数越少。</li>
+</ul>
+<p><img src="/images/Algorithm-images/bubbleSort.png" width="60%" height="10%"></p>
+<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">遍历数组。</div><div class="line">做第二层遍历，从前到后依次对比相邻两项，前一项的值大于后一项，则交换（冒泡）。</div><div class="line">第一遍冒泡，将最大的元素值冒泡至最后。  </div><div class="line">由于每一遍冒泡都确定一个当前最大值并放到当前范围的最后的位置，每一遍的冒泡就可以少检查一个位置。</div><div class="line">可以使用一个变量记录当前一遍的冒泡有没有产生元素交换，如果没有，说明当前已经是排序完成的状态，终止循环。</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params">array</span>) </span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> first = <span class="number">0</span>, len = array.length; first &lt; len; first++) &#123;</div><div class="line">    <span class="keyword">let</span> isSorted = <span class="literal">true</span>;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">"第"</span>+first+<span class="string">"次排序: "</span>+array)</div><div class="line">	<span class="comment">// 前一项的值大于后一项，则交换（冒泡）</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> second = <span class="number">0</span>; second &lt; len - first - <span class="number">1</span>; second++) &#123;</div><div class="line">      <span class="keyword">if</span> (array[ second ] &gt; array[ second + <span class="number">1</span> ]) &#123;</div><div class="line">        <span class="keyword">let</span> temp = array [ second ];</div><div class="line">        array[ second ] = array[ second + <span class="number">1</span> ]</div><div class="line">        array[ second + <span class="number">1</span> ] = temp;</div><div class="line">        isSorted = <span class="literal">false</span>;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (isSorted) &#123;</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> array;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/images/Algorithm-images/bubbleSort02.png" width="60%" height="10%">  </p>
+<h2 id="【选择排序】"><a href="#【选择排序】" class="headerlink" title="【选择排序】"></a>【选择排序】</h2><h3 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>在无序区中选出最小的元素，然后将它和无序区的第一个元素交换位置。</li>
+<li>先找出最小的、再找出第二小的、接着找出第三小的…</li>
+</ul>
+<p><img src="/images/Algorithm-images/selectionSort.png" width="60%" height="10%"></p>
+<h3 id="算法思路-1"><a href="#算法思路-1" class="headerlink" title="算法思路"></a>算法思路</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">遍历数组。</div><div class="line">找到当前范围内最小的元素，用 minIndex 记录它的下标，第一次遍历时范围就是整个数组。</div><div class="line">将下标为 minIndex 的元素的值与当前最小下标的元素交换，第一次遍历时下标最小的元素就是 a[0]。</div><div class="line">第二次遍历时，范围就从第二个数据元素的下标开始，那么当前最小下标元素就是 a[1]。</div><div class="line">重复交换直至遍历结束。</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectionSort</span>(<span class="params">array</span>)</span>&#123;</div><div class="line">	<span class="keyword">const</span> len = array.length;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;len<span class="number">-1</span>; i++)&#123;</div><div class="line">		<span class="keyword">let</span> min = i;</div><div class="line">        <span class="comment">// 二者比较，小的放前面</span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">let</span> j=i+<span class="number">1</span>; j&lt;len; j++)&#123;         </div><div class="line">			<span class="keyword">if</span>( array[min] &gt; array[j ])&#123;</div><div class="line">				min = j;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">        <span class="comment">// 交换位置</span></div><div class="line">		[ array[min] , array[i]] = [ array[i] , array[min] ]</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> array;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/images/Algorithm-images/selectionSort02.png" width="60%" height="10%"></p>
+<ul>
+<li><a href="https://juejin.im/post/5a2969656fb9a0452405bbb4?utm_medium=fe&amp;utm_source=weixinqun" target="_blank" rel="external">笔记参考1</a></li>
+</ul>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">冒泡排序 by Q: </div><div class="line"></div><div class="line">	初始状态：    [3    5    7    4    8    1]</div><div class="line">    第一次排序：   3    5    4    7    1   [8]</div><div class="line">    第二次排序：   3    4    5    1   [7    8]</div><div class="line">    第三次排序：   3    4    1   [5    7    8]</div><div class="line">    第四次排序：   3    1   [4    5    7    8]</div><div class="line">    第五次排序：  [1    3    4    5    7    8]</div></pre></td></tr></table></figure>
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持啊其</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/wechat-reward-image.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/alipay-reward-image.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/01/25/学Flex有笔记（三）/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2018/03/28/Nginx静态文件的配置/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+  <section class="duoshuo-comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-排序算法几则" 
+      data-title="排序算法几则" data-url="http://yoursite.com/2018/01/25/排序算法几则/index.html"></div>
+    <!-- 多说评论框 end -->
+  </section>
+
+
+
+
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:"blog-commit"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
