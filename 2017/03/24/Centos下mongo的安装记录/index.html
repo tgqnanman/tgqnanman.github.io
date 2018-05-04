@@ -15,16 +15,21 @@
     <meta name="keywords" content="Linux," />
   
 
-  <meta name="description" content="不尝试一下，你都不知道什么是绝望">
+  <meta name="description" content="具体安装mongodb的流程配置文件.repo12$ cd /etc/yum.repos.d  //进入此目录$ vi mongodb-rog-3.6.repo  //创建这个文件并写入要安装的mongo的版本下载内容
+copy以下vim入mongodb-rog-3.6.repo[mongodb-org-3.6]name=MongoDB Repositorybaseurl=https://repo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Centos下mongo的安装记录">
 <meta property="og:url" content="http://yoursite.com/2017/03/24/Centos下mongo的安装记录/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="不尝试一下，你都不知道什么是绝望">
-<meta property="og:updated_time" content="2018-04-16T09:43:28.508Z">
+<meta property="og:description" content="具体安装mongodb的流程配置文件.repo12$ cd /etc/yum.repos.d  //进入此目录$ vi mongodb-rog-3.6.repo  //创建这个文件并写入要安装的mongo的版本下载内容
+copy以下vim入mongodb-rog-3.6.repo[mongodb-org-3.6]name=MongoDB Repositorybaseurl=https://repo">
+<meta property="og:image" content="http://yoursite.com/images/mongodb-images/etcyum.repos.dmongodb_org_3.6.repo配置信息.png">
+<meta property="og:updated_time" content="2018-05-04T01:11:36.252Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos下mongo的安装记录">
-<meta name="twitter:description" content="不尝试一下，你都不知道什么是绝望">
+<meta name="twitter:description" content="具体安装mongodb的流程配置文件.repo12$ cd /etc/yum.repos.d  //进入此目录$ vi mongodb-rog-3.6.repo  //创建这个文件并写入要安装的mongo的版本下载内容
+copy以下vim入mongodb-rog-3.6.repo[mongodb-org-3.6]name=MongoDB Repositorybaseurl=https://repo">
+<meta name="twitter:image" content="http://yoursite.com/images/mongodb-images/etcyum.repos.dmongodb_org_3.6.repo配置信息.png">
 
   
 
@@ -135,6 +140,11 @@
 </div>
 
 
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#具体安装mongodb的流程"><span class="toc-text">具体安装mongodb的流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置文件-repo"><span class="toc-text">配置文件.repo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行安装"><span class="toc-text">执行安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#禁止yum自动升级mongodb"><span class="toc-text">禁止yum自动升级mongodb</span></a></li></ol></li></ol>
+  </div>
+
 
 
 <div class="content content-post CENTER">
@@ -151,7 +161,7 @@
       
         <span class="article-author">
           <i class="icon-user"></i>
-          <span>啊其</span>
+          <span>Mr.Q</span>
         </span>
       
 
@@ -178,7 +188,13 @@
 
   <div class="article-content">
     
-      
+      <h2 id="具体安装mongodb的流程"><a href="#具体安装mongodb的流程" class="headerlink" title="具体安装mongodb的流程"></a>具体安装mongodb的流程</h2><h3 id="配置文件-repo"><a href="#配置文件-repo" class="headerlink" title="配置文件.repo"></a>配置文件.repo</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd /etc/yum.repos.d  <span class="comment">//进入此目录</span></div><div class="line">$ vi mongodb-rog<span class="number">-3.6</span>.repo  <span class="comment">//创建这个文件并写入要安装的mongo的版本下载内容</span></div></pre></td></tr></table></figure>
+<p><em>copy以下vim入mongodb-rog-3.6.repo</em><br><code>[mongodb-org-3.6]</code><br><code>name=MongoDB Repository</code><br><code>baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.6/x86_64/</code><br><code>gpgcheck=1</code><br><code>enabled=1</code><br><code>gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc</code></p>
+<p><img src="/images/mongodb-images/etcyum.repos.dmongodb_org_3.6.repo配置信息.png" width="100%" height="20%"></p>
+<h3 id="执行安装"><a href="#执行安装" class="headerlink" title="执行安装"></a>执行安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install -y mongodb-org</div></pre></td></tr></table></figure>
+<h3 id="禁止yum自动升级mongodb"><a href="#禁止yum自动升级mongodb" class="headerlink" title="禁止yum自动升级mongodb"></a>禁止yum自动升级mongodb</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vi etc/yum.conf</div></pre></td></tr></table></figure>
+<p><em>copy以下到yum.conf</em><br><code>exclude=mongodb-org,mongodb-org-server,mongodb-org-shell,mongodb-org-mongos,mongodb-org-tools</code></p>
+
     
   </div>
 </article>
@@ -233,7 +249,7 @@
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">Close</span>
+      <span id="close" class="btn-close">关闭</span>
     </div>
     <hr>
     <div class="modal-body">

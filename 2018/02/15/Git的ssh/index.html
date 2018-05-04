@@ -15,16 +15,25 @@
     <meta name="keywords" content="git," />
   
 
-  <meta name="description" content="不尝试一下，你都不知道什么是绝望">
+  <meta name="description" content="ssh登录git服务器（ssh登录）用户 tgq系统 centos6.9【服务端】首先登录tgq用户然后[tgq@instance-1 ~]$ cd ~[tgq@instance-1 ~]$ mkdir .ssh[tgq@instance-1 ~]$ vim .ssh/authorized_keys
+
+【客户端】本地找到C:\Users\TGQ.ssh里面的id_rsa.pub
+复制到【服务端】的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git的ssh">
 <meta property="og:url" content="http://yoursite.com/2018/02/15/Git的ssh/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="不尝试一下，你都不知道什么是绝望">
-<meta property="og:updated_time" content="2018-04-18T09:09:21.170Z">
+<meta property="og:description" content="ssh登录git服务器（ssh登录）用户 tgq系统 centos6.9【服务端】首先登录tgq用户然后[tgq@instance-1 ~]$ cd ~[tgq@instance-1 ~]$ mkdir .ssh[tgq@instance-1 ~]$ vim .ssh/authorized_keys
+
+【客户端】本地找到C:\Users\TGQ.ssh里面的id_rsa.pub
+复制到【服务端】的">
+<meta property="og:updated_time" content="2018-04-26T06:10:49.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git的ssh">
-<meta name="twitter:description" content="不尝试一下，你都不知道什么是绝望">
+<meta name="twitter:description" content="ssh登录git服务器（ssh登录）用户 tgq系统 centos6.9【服务端】首先登录tgq用户然后[tgq@instance-1 ~]$ cd ~[tgq@instance-1 ~]$ mkdir .ssh[tgq@instance-1 ~]$ vim .ssh/authorized_keys
+
+【客户端】本地找到C:\Users\TGQ.ssh里面的id_rsa.pub
+复制到【服务端】的">
 
   
 
@@ -151,7 +160,7 @@
       
         <span class="article-author">
           <i class="icon-user"></i>
-          <span>啊其</span>
+          <span>Mr.Q</span>
         </span>
       
 
@@ -178,7 +187,15 @@
 
   <div class="article-content">
     
-      
+      <p>ssh登录git服务器（ssh登录）<br>用户 tgq<br>系统 centos6.9<br>【服务端】<br>首先登录tgq用户<br>然后<br>[tgq@instance-1 ~]$ cd ~<br>[tgq@instance-1 ~]$ mkdir .ssh<br>[tgq@instance-1 ~]$ vim .ssh/authorized_keys</p>
+<hr>
+<p>【客户端】<br>本地找到C:\Users\TGQ.ssh<br>里面的id_rsa.pub</p>
+<p>复制到【服务端】的.ssh/authorized_keys里面</p>
+<hr>
+<p>【服务端】<br>然后给.ssh和authorized_keys加权限<br>[tgq@instance-1 ~]$ chmod 755 .ssh<br>[tgq@instance-1 ~]$ chmod 644 .ssh/authorized_keys</p>
+<p>【TEST】<br>【客户端SSH登录linux的tgq用户-SUCCESS】<br>$ ssh tgq@35.196.180.56<br>Last login: Thu Apr 26 03:01:44 2018 from 211.97.6.123</p>
+<p>给tgq用户加sudo权限，先用root用户登录然后<br>$  sudo vim /etc/sudoers<br>加入这条即可<br>tgqgit     ALL=(ALL) NOPASSWD:ALL</p>
+
     
   </div>
 </article>
@@ -208,10 +225,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2018/01/25/排序算法几则/">
+    <a class="show pull-left" href="/2018/02/15/搭建node+vue单页面应用/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2018/02/15/搭建node+vue单页面应用/">
+    <a class="show pull-right" href="/2018/03/25/node+mongodb登录小demo.md/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
@@ -233,7 +250,7 @@
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">Close</span>
+      <span id="close" class="btn-close">关闭</span>
     </div>
     <hr>
     <div class="modal-body">

@@ -18,9 +18,9 @@
   <meta name="description" content="两种本地ssh的登录
 前提是你已经在云主机上的~目录下的.ssh/authorized_keys写入了本地密钥对的公钥id_rsa_2048.pub。没有密钥对的话，要先用ssh-keygen生成密钥对
 
+客户端：1本地查看id_rsa.pub的内容并复制
 
-方式一：这种方式是每次终端重启都要输入以下两条命令的，但是第二种方式配置完，以后只需要ssh tgq就行了。在终端下输入以下命令：
-12$   eval `ssh-agent -s`$   s">
+服务端：1234567$ ssh root@yourServerIP（登录root用户）$ mkdir .ssh$ chmod 700 .s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux的shh登录">
 <meta property="og:url" content="http://yoursite.com/2016/05/05/Linux的ssh登录/index.html">
@@ -28,22 +28,25 @@
 <meta property="og:description" content="两种本地ssh的登录
 前提是你已经在云主机上的~目录下的.ssh/authorized_keys写入了本地密钥对的公钥id_rsa_2048.pub。没有密钥对的话，要先用ssh-keygen生成密钥对
 
+客户端：1本地查看id_rsa.pub的内容并复制
 
-方式一：这种方式是每次终端重启都要输入以下两条命令的，但是第二种方式配置完，以后只需要ssh tgq就行了。在终端下输入以下命令：
-12$   eval `ssh-agent -s`$   s">
+服务端：1234567$ ssh root@yourServerIP（登录root用户）$ mkdir .ssh$ chmod 700 .s">
+<meta property="og:image" content="http://yoursite.com/images/Linux-images/需要放到root主目录~下的.ssh里authroed_keys的本地id_rsa.pub.png">
+<meta property="og:image" content="http://yoursite.com/images/Linux-images/root主目录下~的auth_keys的内容">
+<meta property="og:image" content="http://yoursite.com/images/Linux-images/etc_ssh_sshd_config配置图">
 <meta property="og:image" content="http://yoursite.com/images/Linux-images/ssh01.png">
 <meta property="og:image" content="http://yoursite.com/images/Linux-images/ssh02.png">
 <meta property="og:image" content="http://yoursite.com/images/Linux-images/ls-al.png">
-<meta property="og:updated_time" content="2018-04-10T14:28:15.457Z">
+<meta property="og:updated_time" content="2018-05-04T01:11:45.613Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux的shh登录">
 <meta name="twitter:description" content="两种本地ssh的登录
 前提是你已经在云主机上的~目录下的.ssh/authorized_keys写入了本地密钥对的公钥id_rsa_2048.pub。没有密钥对的话，要先用ssh-keygen生成密钥对
 
+客户端：1本地查看id_rsa.pub的内容并复制
 
-方式一：这种方式是每次终端重启都要输入以下两条命令的，但是第二种方式配置完，以后只需要ssh tgq就行了。在终端下输入以下命令：
-12$   eval `ssh-agent -s`$   s">
-<meta name="twitter:image" content="http://yoursite.com/images/Linux-images/ssh01.png">
+服务端：1234567$ ssh root@yourServerIP（登录root用户）$ mkdir .ssh$ chmod 700 .s">
+<meta name="twitter:image" content="http://yoursite.com/images/Linux-images/需要放到root主目录~下的.ssh里authroed_keys的本地id_rsa.pub.png">
 
   
 
@@ -155,7 +158,7 @@
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">Posts List</strong>
+    <strong class="toc-title">文章目录</strong>
     <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#两种本地ssh的登录"><span class="toc-text">两种本地ssh的登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方式一："><span class="toc-text">方式一：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方式二："><span class="toc-text">方式二：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#密钥目录下的config配置文件"><span class="toc-text">密钥目录下的config配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#全局登录配置"><span class="toc-text">全局登录配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置后的登录"><span class="toc-text">配置后的登录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#顺带提一下："><span class="toc-text">顺带提一下：</span></a></li></ol>
   </div>
 
@@ -175,7 +178,7 @@
       
         <span class="article-author">
           <i class="icon-user"></i>
-          <span>啊其</span>
+          <span>Mr.Q</span>
         </span>
       
 
@@ -205,9 +208,15 @@
       <h3 id="两种本地ssh的登录"><a href="#两种本地ssh的登录" class="headerlink" title="两种本地ssh的登录"></a>两种本地ssh的登录</h3><ul>
 <li>前提是你已经在云主机上的~目录下的.ssh/authorized_keys写入了本地密钥对的公钥id_rsa_2048.pub。<code>没有密钥对的话，要先用ssh-keygen生成密钥对</code></li>
 </ul>
+<p>客户端：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">本地查看id_rsa.pub的内容并复制</div></pre></td></tr></table></figure></p>
+<p><img src="/images/Linux-images/需要放到root主目录~下的.ssh里authroed_keys的本地id_rsa.pub.png" width="100%" height="20%"></p>
+<p>服务端：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ ssh root@yourServerIP（登录root用户）</div><div class="line">$ mkdir .ssh</div><div class="line">$ chmod 700 .ssh</div><div class="line">$ vim .ssh/authorized_keys</div><div class="line">$ i(然后黏贴刚才复制的内容)</div><div class="line">$ Esc :wq!</div><div class="line">$ chmod chmod 600 .ssh/authorized_keys</div></pre></td></tr></table></figure></p>
+<p><img src="/images/Linux-images/root主目录下~的auth_keys的内容" width="100%" height="20%"></p>
+<p>然后配置根目录/下的/etc/ssh/sshd_config文件<br>$ cd /etc/ssh<br>$ vim sshd_config<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">PermitRootLogin yes</div><div class="line">RSAAuthentication yes</div><div class="line">PubkeyAuthentication yes</div><div class="line">AuthorizedKeysFile      .ssh/authorized_keys</div></pre></td></tr></table></figure></p>
+<p><img src="/images/Linux-images/etc_ssh_sshd_config配置图" width="100%" height="20%"></p>
 <ul>
 <li><h3 id="方式一："><a href="#方式一：" class="headerlink" title="方式一："></a>方式一：</h3><p>这种方式是每次终端重启都要输入以下两条命令的，但是第二种方式配置完，以后只需要ssh tgq就行了。<br>在终端下输入以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$   eval `ssh-agent -s`</div><div class="line">$   ssh-add C:\Users\TGQ\.ssh\id_rsa_2048</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$   eval `ssh-agent -s`</div><div class="line">$   ssh-add C:/Users/TGQ/.ssh/id_rsa_2048</div></pre></td></tr></table></figure>
 <p>然后连接到云主机:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$   ssh tgq@&quot;云主机公网IP&quot;</div></pre></td></tr></table></figure>
 </li>
@@ -286,7 +295,7 @@
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">Close</span>
+      <span id="close" class="btn-close">关闭</span>
     </div>
     <hr>
     <div class="modal-body">

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>非root用户的ssh免密码登录 | 博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="linux," />
+  
+
+  <meta name="description" content="普通用户免密登录正常流程：客户端：生成密钥和公钥服务端.ssh：添加公钥客户端：免密码登录普通用户或者root用户
+具体流程123456root用户登录先$ ssh root@yourServerIP在~目录下（根据前面的root的无密钥登录配置）应该有.ssh文件,看到权限应该是700$ ls -l -a然后查看.ssh/authorized_keys的内容并黏贴到普通用户tgq（你自己也可以a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="非root用户的ssh免密码登录">
+<meta property="og:url" content="http://yoursite.com/2018/03/30/非root用户的ssh免密码登录/index.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="普通用户免密登录正常流程：客户端：生成密钥和公钥服务端.ssh：添加公钥客户端：免密码登录普通用户或者root用户
+具体流程123456root用户登录先$ ssh root@yourServerIP在~目录下（根据前面的root的无密钥登录配置）应该有.ssh文件,看到权限应该是700$ ls -l -a然后查看.ssh/authorized_keys的内容并黏贴到普通用户tgq（你自己也可以a">
+<meta property="og:image" content="http://yoursite.com/images/Linux-images/root主目录下~的auth_keys的内容">
+<meta property="og:image" content="http://yoursite.com/images/Linux-images/tgq用户里的.ssh权限ls -l .ssh.png">
+<meta property="og:updated_time" content="2018-05-03T00:46:18.964Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="非root用户的ssh免密码登录">
+<meta name="twitter:description" content="普通用户免密登录正常流程：客户端：生成密钥和公钥服务端.ssh：添加公钥客户端：免密码登录普通用户或者root用户
+具体流程123456root用户登录先$ ssh root@yourServerIP在~目录下（根据前面的root的无密钥登录配置）应该有.ssh文件,看到权限应该是700$ ls -l -a然后查看.ssh/authorized_keys的内容并黏贴到普通用户tgq（你自己也可以a">
+<meta name="twitter:image" content="http://yoursite.com/images/Linux-images/root主目录下~的auth_keys的内容">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#普通用户免密登录"><span class="toc-text">普通用户免密登录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#正常流程："><span class="toc-text">正常流程：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#具体流程"><span class="toc-text">具体流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#具体步骤"><span class="toc-text">具体步骤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux主机间无密登录"><span class="toc-text">Linux主机间无密登录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#正常流程：-1"><span class="toc-text">正常流程：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#具体步骤-1"><span class="toc-text">具体步骤</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-非root用户的ssh免密码登录" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">非root用户的ssh免密码登录</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.03.30</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Mr.Q</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+        <i class="icon-comment"></i> 
+        <span class="ds-thread-count" data-thread-key="post-非root用户的ssh免密码登录"><i class="fa fa-spinner fa-spin"></i></span> 条评论
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="普通用户免密登录"><a href="#普通用户免密登录" class="headerlink" title="普通用户免密登录"></a>普通用户免密登录</h2><h3 id="正常流程："><a href="#正常流程：" class="headerlink" title="正常流程："></a>正常流程：</h3><p>客户端：生成密钥和公钥<br>服务端.ssh：添加公钥<br>客户端：免密码登录普通用户或者root用户</p>
+<h3 id="具体流程"><a href="#具体流程" class="headerlink" title="具体流程"></a>具体流程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">root用户登录先</div><div class="line">$ ssh root@yourServerIP</div><div class="line">在~目录下（根据前面的root的无密钥登录配置）</div><div class="line">应该有.ssh文件,看到权限应该是700</div><div class="line">$ ls -l -a</div><div class="line">然后查看.ssh/authorized_keys的内容并黏贴到普通用户tgq（你自己也可以adduser username一个普通用户）的根目录下的.ssh/authorized_keys中</div></pre></td></tr></table></figure>
+<p><img src="/images/Linux-images/root主目录下~的auth_keys的内容" width="100%" height="20%"></p>
+<h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$ ssh root@yourServerIP</div><div class="line">$ cd ~/.ssh</div><div class="line">$ cat authorized_keys (然后全选复制)</div><div class="line">$ cd /home/tgq</div><div class="line">$ mkdir .ssh</div><div class="line">$ chmod 700 .ssh</div><div class="line">$ vim .ssh/authorized_keys</div><div class="line">$ i(然后黏贴刚才的内容)</div><div class="line">$ Esc :wq!</div><div class="line">$ chmod chmod 600 .ssh/authorized_keys</div></pre></td></tr></table></figure>
+<p><img src="/images/Linux-images/tgq用户里的.ssh权限ls -l .ssh.png" width="100%" height="20%"></p>
+<h2 id="Linux主机间无密登录"><a href="#Linux主机间无密登录" class="headerlink" title="Linux主机间无密登录"></a>Linux主机间无密登录</h2><h3 id="正常流程：-1"><a href="#正常流程：-1" class="headerlink" title="正常流程："></a>正常流程：</h3><p>主机A：生成密钥和公钥<br>主机B：添加主机A公钥<br>主机A：ssh username@serverBip便可无密登录  </p>
+<h3 id="具体步骤-1"><a href="#具体步骤-1" class="headerlink" title="具体步骤"></a>具体步骤</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">登录主机A   </div><div class="line">$ ls -al ~/.ssh（查看有无.ssh文件）</div><div class="line">$ ssh-keygen -t rsa -b 1024（没有的话，此步将在主目录~下生成ssh公钥还有密钥）</div><div class="line">$ cd .ssh</div><div class="line">$ cat id_rsa.pub(全选并复制)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">登录主机B</div><div class="line">$ cd ~/.ssh</div><div class="line">$ vim authorized_keys</div><div class="line">$ 黏贴刚刚复制主机A的公钥内容，保存并退出</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">登录主机A</div><div class="line">$ ssh username@serverBip（便可无密登录）</div></pre></td></tr></table></figure>
+<p><strong>注意：</strong><br>ssh公钥和密钥都是在~主目录下生成的。<br>所以在root用户的etc/ssh/sshd_config(先cd /进入根目录)里面配置的<code>AuthorizedKeysFile   .ssh/authorized_keys</code>指的是~/.ssh/authorized_keys.<br><strong>ps：</strong><br>主目录是~，主目录是当前用户的HOME目录。<br>若是root用户，~则是代表/root。若是普通用户，比如tgq用户，则~代表的是/home/tgq。<br>根目录是/，是树状形式目录的根。</p>
+<p>【踩坑之权限问题】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.ssh/authorized_keys：600权限 (-rw——-)或者644</div><div class="line">.ssh：700权限 (drwx——)  </div><div class="line">/home/tgq：755权限（drwxr-xr-x）</div></pre></td></tr></table></figure></p>
+<p>【踩坑之root的sshd_config配置】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">加入公钥、修改文件权限之后，记得修改/etc/ssh/sshd_config的配置，并且在修改后重启。</div><div class="line">$ service sshd restart</div></pre></td></tr></table></figure></p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持啊其</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/wechat-reward-image.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/alipay-reward-image.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2018/03/30/零配置服务器http-server/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+  <section class="duoshuo-comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-非root用户的ssh免密码登录" 
+      data-title="非root用户的ssh免密码登录" data-url="http://yoursite.com/2018/03/30/非root用户的ssh免密码登录/index.html"></div>
+    <!-- 多说评论框 end -->
+  </section>
+
+
+
+
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:"blog-commit"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

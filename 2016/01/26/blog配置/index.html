@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>blog配置 | 博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="blog," />
+  
+
+  <meta name="description" content="主要配置文件：
+在根目录下的_config.yml  (主配置)themes  =&amp;gt;  theme  =&amp;gt;  _config.yml  (theme配置)source  =&amp;gt;  _posts  (md文件存放)
+
+用到的git命令
+生成新的md文件： hexo n &amp;#39;filename&amp;#39;
+
+整合静态文件(生成public文件夹)： hexo g
+
+本地预览： hex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="blog配置">
+<meta property="og:url" content="http://yoursite.com/2016/01/26/blog配置/index.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="主要配置文件：
+在根目录下的_config.yml  (主配置)themes  =&amp;gt;  theme  =&amp;gt;  _config.yml  (theme配置)source  =&amp;gt;  _posts  (md文件存放)
+
+用到的git命令
+生成新的md文件： hexo n &amp;#39;filename&amp;#39;
+
+整合静态文件(生成public文件夹)： hexo g
+
+本地预览： hex">
+<meta property="og:image" content="http://yoursite.com/images/hexo-config/路径报错问题.png">
+<meta property="og:image" content="http://yoursite.com/images/砸电脑-min.jpg">
+<meta property="og:updated_time" content="2018-05-04T01:32:17.218Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="blog配置">
+<meta name="twitter:description" content="主要配置文件：
+在根目录下的_config.yml  (主配置)themes  =&amp;gt;  theme  =&amp;gt;  _config.yml  (theme配置)source  =&amp;gt;  _posts  (md文件存放)
+
+用到的git命令
+生成新的md文件： hexo n &amp;#39;filename&amp;#39;
+
+整合静态文件(生成public文件夹)： hexo g
+
+本地预览： hex">
+<meta name="twitter:image" content="http://yoursite.com/images/hexo-config/路径报错问题.png">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#主要配置文件："><span class="toc-text">主要配置文件：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用到的git命令"><span class="toc-text">用到的git命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#踩到的坑："><span class="toc-text">踩到的坑：</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-blog配置" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">blog配置</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.01.26</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Mr.Q</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+        <i class="icon-comment"></i> 
+        <span class="ds-thread-count" data-thread-key="post-blog配置"><i class="fa fa-spinner fa-spin"></i></span> 条评论
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h3 id="主要配置文件："><a href="#主要配置文件：" class="headerlink" title="主要配置文件："></a>主要配置文件：</h3><ul>
+<li>在根目录下的<br>_config.yml  (主配置)<br>themes  =&gt;  theme  =&gt;  _config.yml  (theme配置)<br>source  =&gt;  _posts  (md文件存放)</li>
+</ul>
+<h3 id="用到的git命令"><a href="#用到的git命令" class="headerlink" title="用到的git命令"></a>用到的git命令</h3><ul>
+<li><p>生成新的md文件： <code>hexo n &#39;filename&#39;</code></p>
+</li>
+<li><p>整合静态文件(生成public文件夹)： <code>hexo g</code></p>
+</li>
+<li><p>本地预览： <code>hexo server</code></p>
+</li>
+<li><p>终止预览： <code>Ctrl + C</code></p>
+</li>
+<li><p>部署到远端仓库：  <code>hexo deploy</code></p>
+</li>
+<li><p>远端不显示可键入(命令删除public)再g d:  <code>hexo clean</code></p>
+</li>
+</ul>
+<h3 id="踩到的坑："><a href="#踩到的坑：" class="headerlink" title="踩到的坑："></a>踩到的坑：</h3><ul>
+<li>访问路径中文报错<br><code>$ hexo s</code><br>然后本地访问报错<code>The header content contains invalid characters</code><br>解决：<br>node_modules/hexo-server/lib/middlewares/route.js第27行的SetHeader代码。对重定向的url进行encode转码<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//res.setHeader('Location', root + url + '/');  </span></div><div class="line">res.setHeader(<span class="string">'Location'</span>, root + <span class="built_in">encodeURIComponent</span>(url) + <span class="string">'/'</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/images/hexo-config/路径报错问题.png" width="100%" height="20%"></p>
+<ul>
+<li><p>格式问题<br>一定要注意xml配置格式，有空格，然后别的照着弄就好了</p>
+</li>
+<li><p>md文件头设置评论与否(注意空格)：<br>comments: false</p>
+</li>
+<li><p>端口被占用<br>如果您想要更改端口，或是在执行时遇到了 EADDRINUSE 错误，可以在执行时使用 -p 选项指定其他端口，如下：<br><code>hexo server -p 5000</code></p>
+</li>
+<li><p>时不时提交登录一下：<br>当你ssh密钥等都认为弄好了后，以下命令有所帮助<br><code>git init</code> 弹出登录一次后估计就能保存了</p>
+</li>
+</ul>
+<p>如果还解决不了，砸电脑吧 <img src="/images/砸电脑-min.jpg" width="50" height="40"></p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持啊其</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/wechat-reward-image.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/alipay-reward-image.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="hide pull-left" href="/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2016/02/12/编辑器配置/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+  <section class="duoshuo-comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-blog配置" 
+      data-title="blog配置" data-url="http://yoursite.com/2016/01/26/blog配置/index.html"></div>
+    <!-- 多说评论框 end -->
+  </section>
+
+
+
+
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:"blog-commit"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
