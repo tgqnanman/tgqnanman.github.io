@@ -15,20 +15,24 @@
     <meta name="keywords" content="Linux," />
   
 
-  <meta name="description" content="具体安装mongodb的流程配置文件.repo12$ cd /etc/yum.repos.d  //进入此目录$ vi mongodb-rog-3.6.repo  //创建这个文件并写入要安装的mongo的版本下载内容
-copy以下vim入mongodb-rog-3.6.repo[mongodb-org-3.6]name=MongoDB Repositorybaseurl=https://repo">
+  <meta name="description" content="安装mongodb流程配置文件.repo12$ cd /etc/yum.repos.d  //进入此目录$ vi mongodb-rog-3.6.repo  //创建这个文件并写入要安装的mongo的版本下载内容(如下配置)
+[mongodb-org-3.6]name=MongoDB Repositorybaseurl=https://repo.mongodb.org/yum/redhat/$re">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Centos下mongo的安装记录">
 <meta property="og:url" content="https://tgqnanman.com/2017/03/24/Centos下mongo的安装记录/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="具体安装mongodb的流程配置文件.repo12$ cd /etc/yum.repos.d  //进入此目录$ vi mongodb-rog-3.6.repo  //创建这个文件并写入要安装的mongo的版本下载内容
-copy以下vim入mongodb-rog-3.6.repo[mongodb-org-3.6]name=MongoDB Repositorybaseurl=https://repo">
+<meta property="og:description" content="安装mongodb流程配置文件.repo12$ cd /etc/yum.repos.d  //进入此目录$ vi mongodb-rog-3.6.repo  //创建这个文件并写入要安装的mongo的版本下载内容(如下配置)
+[mongodb-org-3.6]name=MongoDB Repositorybaseurl=https://repo.mongodb.org/yum/redhat/$re">
 <meta property="og:image" content="https://tgqnanman.com/images/mongodb-images/etcyum.repos.dmongodb_org_3.6.repo配置信息.png">
-<meta property="og:updated_time" content="2018-05-04T01:11:36.252Z">
+<meta property="og:image" content="https://tgqnanman.com/images/mongodb-images/sudo yum install -y mongodb-org.jpg">
+<meta property="og:image" content="https://tgqnanman.com/images/mongodb-images/copy以下配置到yum.conf.jpg">
+<meta property="og:image" content="https://tgqnanman.com/images/mongodb-images/netstat _nltpgrep mongo.png">
+<meta property="og:image" content="https://tgqnanman.com/images/mongodb-images/etcinit d mongod start.jpg">
+<meta property="og:updated_time" content="2018-05-06T02:29:16.278Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos下mongo的安装记录">
-<meta name="twitter:description" content="具体安装mongodb的流程配置文件.repo12$ cd /etc/yum.repos.d  //进入此目录$ vi mongodb-rog-3.6.repo  //创建这个文件并写入要安装的mongo的版本下载内容
-copy以下vim入mongodb-rog-3.6.repo[mongodb-org-3.6]name=MongoDB Repositorybaseurl=https://repo">
+<meta name="twitter:description" content="安装mongodb流程配置文件.repo12$ cd /etc/yum.repos.d  //进入此目录$ vi mongodb-rog-3.6.repo  //创建这个文件并写入要安装的mongo的版本下载内容(如下配置)
+[mongodb-org-3.6]name=MongoDB Repositorybaseurl=https://repo.mongodb.org/yum/redhat/$re">
 <meta name="twitter:image" content="https://tgqnanman.com/images/mongodb-images/etcyum.repos.dmongodb_org_3.6.repo配置信息.png">
 
   
@@ -81,6 +85,17 @@ copy以下vim入mongodb-rog-3.6.repo[mongodb-org-3.6]name=MongoDB Repositorybase
   
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
+    <!-- THE statistics CODE -->
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a2d97c209232adead75c4c5b4da7bea7";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+      </script>
+      
 </head>
 
 <body>
@@ -152,8 +167,8 @@ copy以下vim入mongodb-rog-3.6.repo[mongodb-org-3.6]name=MongoDB Repositorybase
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#具体安装mongodb的流程"><span class="toc-text">具体安装mongodb的流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置文件-repo"><span class="toc-text">配置文件.repo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行安装"><span class="toc-text">执行安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#禁止yum自动升级mongodb"><span class="toc-text">禁止yum自动升级mongodb</span></a></li></ol></li></ol>
+    <strong class="toc-title">Posts List</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装mongodb流程"><span class="toc-text">安装mongodb流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置文件-repo"><span class="toc-text">配置文件.repo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行安装"><span class="toc-text">执行安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#禁止yum自动升级mongodb"><span class="toc-text">禁止yum自动升级mongodb</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#端口服务配置"><span class="toc-text">端口服务配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mongodb的data、log、端口配置文件"><span class="toc-text">mongodb的data、log、端口配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mongod进程"><span class="toc-text">mongod进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#别的什么"><span class="toc-text">别的什么</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#卸载mongodb"><span class="toc-text">卸载mongodb</span></a></li></ol>
   </div>
 
 
@@ -199,12 +214,65 @@ copy以下vim入mongodb-rog-3.6.repo[mongodb-org-3.6]name=MongoDB Repositorybase
 
   <div class="article-content">
     
-      <h2 id="具体安装mongodb的流程"><a href="#具体安装mongodb的流程" class="headerlink" title="具体安装mongodb的流程"></a>具体安装mongodb的流程</h2><h3 id="配置文件-repo"><a href="#配置文件-repo" class="headerlink" title="配置文件.repo"></a>配置文件.repo</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd /etc/yum.repos.d  <span class="comment">//进入此目录</span></div><div class="line">$ vi mongodb-rog<span class="number">-3.6</span>.repo  <span class="comment">//创建这个文件并写入要安装的mongo的版本下载内容</span></div></pre></td></tr></table></figure>
-<p><em>copy以下vim入mongodb-rog-3.6.repo</em><br><code>[mongodb-org-3.6]</code><br><code>name=MongoDB Repository</code><br><code>baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.6/x86_64/</code><br><code>gpgcheck=1</code><br><code>enabled=1</code><br><code>gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc</code></p>
+      <h1 id="安装mongodb流程"><a href="#安装mongodb流程" class="headerlink" title="安装mongodb流程"></a>安装mongodb流程</h1><h2 id="配置文件-repo"><a href="#配置文件-repo" class="headerlink" title="配置文件.repo"></a><strong>配置文件.repo</strong></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd /etc/yum.repos.d  <span class="comment">//进入此目录</span></div><div class="line">$ vi mongodb-rog<span class="number">-3.6</span>.repo  <span class="comment">//创建这个文件并写入要安装的mongo的版本下载内容(如下配置)</span></div></pre></td></tr></table></figure>
+<p><code>[mongodb-org-3.6]</code><br><code>name=MongoDB Repository</code><br><code>baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.6/x86_64/</code><br><code>gpgcheck=1</code><br><code>enabled=1</code><br><code>gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc</code></p>
 <p><img src="/images/mongodb-images/etcyum.repos.dmongodb_org_3.6.repo配置信息.png" width="100%" height="20%"></p>
-<h3 id="执行安装"><a href="#执行安装" class="headerlink" title="执行安装"></a>执行安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install -y mongodb-org</div></pre></td></tr></table></figure>
-<h3 id="禁止yum自动升级mongodb"><a href="#禁止yum自动升级mongodb" class="headerlink" title="禁止yum自动升级mongodb"></a>禁止yum自动升级mongodb</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vi etc/yum.conf</div></pre></td></tr></table></figure>
-<p><em>copy以下到yum.conf</em><br><code>exclude=mongodb-org,mongodb-org-server,mongodb-org-shell,mongodb-org-mongos,mongodb-org-tools</code></p>
+<h2 id="执行安装"><a href="#执行安装" class="headerlink" title="执行安装"></a><strong>执行安装</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install -y mongodb-org</div></pre></td></tr></table></figure>
+<p><img src="/images/mongodb-images/sudo yum install -y mongodb-org.jpg" width="100%" height="20%"></p>
+<h2 id="禁止yum自动升级mongodb"><a href="#禁止yum自动升级mongodb" class="headerlink" title="禁止yum自动升级mongodb"></a><strong>禁止yum自动升级mongodb</strong></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vi etc/yum.conf  <span class="comment">//copy以下配置到yum.conf</span></div></pre></td></tr></table></figure>
+<p><code>exclude=mongodb-org,mongodb-org-server,mongodb-org-shell,mongodb-org-mongos,mongodb-org-tools</code></p>
+<p><img src="/images/mongodb-images/copy以下配置到yum.conf.jpg" width="100%" height="20%"></p>
+<h2 id="端口服务配置"><a href="#端口服务配置" class="headerlink" title="端口服务配置"></a><strong>端口服务配置</strong></h2><ul>
+<li>If you are using SELinux, you must configure SELinux to allow MongoDB to start on Red Hat Linux-based systems (Red Hat Enterprise Linux or CentOS Linux).</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ semanage port -a -t mongod_port_t -p tcp <span class="number">27017</span></div></pre></td></tr></table></figure>
+<ul>
+<li>配置一下<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vi /etc/selinux/config  <span class="comment">//写入下面的内容</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>SELINUX=permissive</code></p>
+<ul>
+<li>重启linux使配置生效<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ reboot  <span class="comment">//重启后，要过几分钟才能进行ssh连接到linux主机</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="mongodb的data、log、端口配置文件"><a href="#mongodb的data、log、端口配置文件" class="headerlink" title="mongodb的data、log、端口配置文件"></a><strong>mongodb的data、log、端口配置文件</strong></h2><ul>
+<li>默认路径<ul>
+<li><code>/var/lib/mongo</code>  </li>
+<li><code>/var/lib/mongodb</code></li>
+<li><code>/etc/mongod.conf</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="mongod进程"><a href="#mongod进程" class="headerlink" title="mongod进程"></a><strong>mongod进程</strong></h2><ul>
+<li><p>重启mongod进程</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ sudo service mongod restart</div><div class="line"><span class="string">``</span><span class="string">`  </span></div><div class="line">- 停止mongod进程</div><div class="line">`<span class="string">``</span>js</div><div class="line">$ sudo service mongod stop</div></pre></td></tr></table></figure>
+</li>
+<li><p>指定端口的启用mongo shell</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mongo --host <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">27017</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="别的什么"><a href="#别的什么" class="headerlink" title="别的什么"></a><strong>别的什么</strong></h2><ul>
+<li>查看mongo占用端口<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ netstat -nltp|grep mongo</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/images/mongodb-images/netstat _nltpgrep mongo.png" width="100%" height="20%"></p>
+<ul>
+<li>绝对路径开启mongod服务<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ /etc/init.d/mongod start</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/images/mongodb-images/etcinit d mongod start.jpg" width="100%" height="20%"></p>
+<h1 id="卸载mongodb"><a href="#卸载mongodb" class="headerlink" title="卸载mongodb"></a>卸载mongodb</h1><p>卸载Uninstall MongoDB Community Edition¶</p>
+<ul>
+<li><p>停止mongod服务</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo service mongod stop</div></pre></td></tr></table></figure>
+</li>
+<li><p>删除mongodb软件包</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum erase $(rpm -qa | grep mongodb-org)</div></pre></td></tr></table></figure>
+</li>
+<li><p>删除mongodb数据库和日志文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo rm -r /<span class="keyword">var</span>/log/mongodb</div><div class="line">$ sudo rm -r /<span class="keyword">var</span>/lib/mongo</div></pre></td></tr></table></figure>
+</li>
+</ul>
 
     
   </div>
@@ -260,7 +328,7 @@ copy以下vim入mongodb-rog-3.6.repo[mongodb-org-3.6]name=MongoDB Repositorybase
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">关闭</span>
+      <span id="close" class="btn-close">Close</span>
     </div>
     <hr>
     <div class="modal-body">

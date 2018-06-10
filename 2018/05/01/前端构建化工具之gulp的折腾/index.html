@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>前端构建化工具之gulp的折腾 | 博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="gulp," />
+  
+
+  <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051//删除dist目录下的所有文件gulp.task(&apos;cleanDist&apos;,function () &amp;#123;                     //删除dist目录下的所有文件  const cleanD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端构建化工具之gulp的折腾">
+<meta property="og:url" content="https://tgqnanman.com/2018/05/01/前端构建化工具之gulp的折腾/index.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051//删除dist目录下的所有文件gulp.task(&apos;cleanDist&apos;,function () &amp;#123;                     //删除dist目录下的所有文件  const cleanD">
+<meta property="og:updated_time" content="2018-05-21T03:53:06.075Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端构建化工具之gulp的折腾">
+<meta name="twitter:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051//删除dist目录下的所有文件gulp.task(&apos;cleanDist&apos;,function () &amp;#123;                     //删除dist目录下的所有文件  const cleanD">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+    <!-- THE statistics CODE -->
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a2d97c209232adead75c4c5b4da7bea7";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+      </script>
+      
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-前端构建化工具之gulp的折腾" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">前端构建化工具之gulp的折腾</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.05.01</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Mr.Q</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+        <i class="icon-comment"></i> 
+        <span class="ds-thread-count" data-thread-key="post-前端构建化工具之gulp的折腾"><i class="fa fa-spinner fa-spin"></i></span> 条评论
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//删除dist目录下的所有文件</span></div><div class="line">gulp.task(<span class="string">'cleanDist'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;                     <span class="comment">//删除dist目录下的所有文件</span></div><div class="line">  <span class="keyword">const</span> cleanDist = gulp.src(<span class="string">'dist'</span>,&#123;<span class="attr">read</span>:<span class="literal">false</span>&#125;)</div><div class="line">      .pipe(clean());</div><div class="line">      <span class="keyword">return</span> cleanDist;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 复制开发环境的源代码到dist的发布目录</span></div><div class="line">gulp.task(<span class="string">'copyDist'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   <span class="keyword">const</span> copyDist = gulp.src([<span class="string">'./**/*'</span>,<span class="string">''</span>],&#123;</div><div class="line">    <span class="attr">base</span>:<span class="string">'./'</span></div><div class="line">  &#125;).pipe(gulp.dest(<span class="string">'dist'</span>));</div><div class="line">  <span class="keyword">return</span> copyDist;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// task2</span></div><div class="line"><span class="comment">// 这里有个大问题，gulp-run-sequence执行顺序依然是重命名比替换路径还要快。</span></div><div class="line"><span class="comment">// 解决：以下的return stream的方法</span></div><div class="line">gulp.task(<span class="string">'compressCss'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;      <span class="comment">//- 创建一个名为compress-css的task</span></div><div class="line">  <span class="keyword">const</span> stream = gulp.src([<span class="string">'dist/public/css/admin.css'</span>])           <span class="comment">//- 需要处理的css文件，放到一个字符串数组里</span></div><div class="line">      <span class="comment">// .pipe(concat('css/wap.min.css'))         //- 合并后的文件名</span></div><div class="line">      .pipe(autoprefixer())</div><div class="line">      .pipe(minifyCss())                          <span class="comment">//- 压缩处理成一行</span></div><div class="line">      .pipe(rev())                                <span class="comment">//- 文件名加MD5后缀</span></div><div class="line">      .pipe(gulp.dest(<span class="string">'dist/public/css/compressCss'</span>))         <span class="comment">//- 输出文件到dist/css目录下</span></div><div class="line">      .pipe(rev.manifest())                       <span class="comment">//- 生成一个rev-manifest.json</span></div><div class="line">      .pipe(gulp.dest(<span class="string">'dist/public/css/compressCss'</span>));                <span class="comment">//- 将rev-manifest.json保存到rev-css目录内</span></div><div class="line">      <span class="keyword">return</span> stream; <span class="comment">// 返回一个 stream 来表示它已经被完成</span></div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// task3</span></div><div class="line">gulp.task(<span class="string">'revCSS'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      gulp.src([<span class="string">'dist/public/css/compressCss/*.json'</span>,<span class="string">'dist/app/views/admin/layout.jade'</span>])</div><div class="line">      .pipe(reCollector(&#123;</div><div class="line">          <span class="attr">replaceReved</span>: <span class="literal">true</span>,  </div><div class="line">          <span class="attr">dirReplacements</span>: &#123;   </div><div class="line">              <span class="string">'css'</span>: <span class="string">'css/compressCss/'</span></div><div class="line">            &#125;</div><div class="line">          &#125;))</div><div class="line">      .pipe(gulp.dest(<span class="string">'dist/app/views/admin/'</span>))</div><div class="line">      .on(<span class="string">'end'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'........revCSS任务完成,输出成功........'</span>);</div><div class="line">    &#125;);</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// 顺序执行cleanDist删除dist文件夹先，然后copyDist复制源码到dist文件夹子，然后compressCss压缩css,最后revCSS替换压缩后的css路径到jade模版里</span></div><div class="line">gulp.task(<span class="string">'taskSquence'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>&#123;</div><div class="line">  sequence(<span class="string">'cleanDist'</span>,<span class="string">'copyDist'</span>,<span class="string">'compressCss'</span>,<span class="string">'revCSS'</span>,callback)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持啊其</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/wechat-reward-image.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/alipay-reward-image.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2018/03/30/非root用户的ssh免密码登录/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2019/02/05/Linux自己的常用命令/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">Close</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+  <section class="duoshuo-comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-前端构建化工具之gulp的折腾" 
+      data-title="前端构建化工具之gulp的折腾" data-url="https://tgqnanman.com/2018/05/01/前端构建化工具之gulp的折腾/index.html"></div>
+    <!-- 多说评论框 end -->
+  </section>
+
+
+
+
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:"blog-commit"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
